@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Butter Cloud — Homemade. Handmade. Worth the wait.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Pacifico&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient decorative clouds — purely visual, sit behind all content -->
+  <div class="ambient-clouds" aria-hidden="true">
+    <div class="ambient-cloud ambient-cloud--1"></div>
+    <div class="ambient-cloud ambient-cloud--2"></div>
+    <div class="ambient-cloud ambient-cloud--3"></div>
+  </div>
+
+
+  <!-- ===== Sticky Header ===== -->
+  <header class="site-header" id="site-header">
+    <a href="#top" class="brand-mark">
+      <img src="logo.png" alt="Butter Cloud logo" class="logo-mark">
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <a href="#story">Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#pre-orders">Pre-Orders</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#place-order" class="nav-cta">Order Now</a>
+    </nav>
+
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-blob hero-blob--primary" aria-hidden="true"></div>
+      <div class="hero-blob hero-blob--accent" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <h1 class="hero-name">Butttercloud</h1>
+        <p class="hero-tagline">Homemade. Handmade. Worth the wait.</p>
+        <a href="#menu" class="btn-primary" id="view-menu-btn">View Menu</a>
+      </div>
+    </section>
+
+    <!-- ===== Story ===== -->
+    <section class="story" id="story" aria-label="Why Butttercloud cakes are made the way they are">
+      <h2 class="story-heading">the tea, spilled</h2>
+
+      <div class="story-thread" aria-hidden="true"></div>
+
+      <div class="story-track">
+
+        <article class="beat" data-beat="1">
+          <div class="beat-figure">
+            <img src="mascot/beat1.webp" alt="Mascot waving hello" loading="lazy">
+          </div>
+          <div class="beat-bubble">
+            <p>hii <span aria-hidden="true">👋</span> here's the tea on why cakes aren't cheap. quick read, promise.</p>
+          </div>
+        </article>
+
+        <article class="beat" data-beat="2">
+          <div class="beat-figure">
+            <img src="mascot/beat2.webp" alt="Mascot holding up a freshly baked cake" loading="lazy">
+          </div>
+          <div class="beat-bubble">
+            <p>nothing's pre-made. your order gets baked when you order it — not sitting around for days pretending it's "fresh."</p>
+          </div>
+        </article>
+
+        <article class="beat" data-beat="3">
+          <div class="beat-figure">
+            <img src="mascot/beat3.webp" alt="Mascot surrounded by small piles of ingredients, looking exasperated" loading="lazy">
+          </div>
+          <div class="beat-bubble">
+            <p>and "just buy in bulk" isn't a thing when you're one person making one order at a time. bulk ingredients would expire before i even touch half of them.</p>
+          </div>
+        </article>
+
+        <article class="beat" data-beat="4">
+          <div class="beat-figure">
+            <img src="mascot/beat4.webp" alt="Mascot checking the clock next to a stand mixer, looking tired" loading="lazy">
+          </div>
+          <div class="beat-bubble">
+            <p>the oven and mixer don't run on vibes. i'm working around actual electricity timings — baking is not a "mix and done" situation.</p>
+          </div>
+        </article>
+
+        <article class="beat" data-beat="5">
+          <div class="beat-figure">
+            <img src="mascot/beat5.webp" alt="Mascot stressed and sweating while holding a cake" loading="lazy">
+          </div>
+          <div class="beat-bubble">
+            <p>still a student at COTHM, first year almost done <span aria-hidden="true">🎓</span> — so yes, i stress over every cake. if it's not right, i redo it. your order gets my full attention, not leftovers.</p>
+          </div>
+        </article>
+
+        <article class="beat" data-beat="6">
+          <div class="beat-figure">
+            <img src="mascot/beat6.webp" alt="Mascot confidently giving a thumbs up while presenting a finished cake" loading="lazy">
+          </div>
+          <div class="beat-bubble">
+            <p>that's the tea, fully spilled. now you know why i need a little advance notice — let's talk pre-orders <span aria-hidden="true">👇</span></p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== Menu ===== -->
+    <section class="menu" id="menu" aria-label="Menu">
+      <h2 class="section-heading section-heading--script">the menu</h2>
+
+      <!-- Cakes -->
+      <div class="menu-category">
+        <h3 class="menu-category-title">Cakes</h3>
+        <div class="menu-items" id="menu-cakes"></div>
+      </div>
+
+      <!-- Brownies -->
+      <div class="menu-category">
+        <h3 class="menu-category-title">Brownies</h3>
+        <div class="menu-items" id="menu-brownies"></div>
+      </div>
+
+      <!-- Cookies -->
+      <div class="menu-category">
+        <h3 class="menu-category-title">Cookies</h3>
+        <div class="menu-items" id="menu-cookies"></div>
+      </div>
+
+      <!-- Butter Biscuits -->
+      <div class="menu-category">
+        <h3 class="menu-category-title">Butter Biscuits</h3>
+        <div class="menu-items" id="menu-biscuits"></div>
+      </div>
+    </section>
+
+    <!-- ===== Floating Cart ===== -->
+    <button type="button" class="cart-fab" id="cart-fab" aria-label="View cart">
+      <span class="cart-fab-icon" aria-hidden="true">🛒</span>
+      <span class="cart-fab-count" id="cart-fab-count" hidden>0</span>
+    </button>
+
+    <div class="cart-panel" id="cart-panel" hidden>
+      <div class="cart-panel-header">
+        <h3>Your Cart</h3>
+        <button type="button" class="cart-close-btn" id="cart-close-btn" aria-label="Close cart">&times;</button>
+      </div>
+      <div class="cart-panel-body" id="cart-panel-body">
+        <p class="cart-empty">Nothing in here yet — add something from the menu!</p>
+      </div>
+      <div class="cart-panel-footer">
+        <div class="cart-total-row">
+          <span>Total</span>
+          <span id="cart-total">Rs. 0</span>
+        </div>
+        <a href="#place-order" class="btn-primary cart-checkout-btn" id="cart-checkout-btn">Checkout</a>
+      </div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay" hidden></div>
+
+    <!-- ===== Mascot Companion ===== -->
+    <button type="button" class="mascot-companion" id="mascot-companion" aria-label="Say hi to the Butttercloud mascot">
+      <img src="mascot/companion-idle.webp" alt="" id="mascot-companion-img">
+    </button>
+
+    <!-- ===== Gallery ===== -->
+    <section class="gallery" id="gallery" aria-label="Custom cake gallery">
+      <h2 class="section-heading section-heading--script">cakes we've made</h2>
+      <p class="gallery-intro">A few of the custom cakes that have come out of this kitchen — tap any photo to see it larger.</p>
+
+      <div class="gallery-grid" id="gallery-grid">
+        <div class="gallery-item">
+          <img src="gallery/custom-cake-1.webp" alt="Custom Eid cake with Arabic calligraphy and gold leaf detail" loading="lazy">
+          <p class="gallery-caption">Eid Cake</p>
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/custom-cake-2.webp" alt="Custom pink birthday cake with a personalized message" loading="lazy">
+          <p class="gallery-caption">Birthday Cake</p>
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/custom-cake-3.webp" alt="Custom graduation cake with a crumb-coated edge" loading="lazy">
+          <p class="gallery-caption">Graduation Cake</p>
+        </div>
+        <div class="gallery-item">
+          <img src="gallery/custom-cake-4.webp" alt="Custom caramel cookie-edge cake with a personalized message" loading="lazy">
+          <p class="gallery-caption">Personalized Cake</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Pre-Orders ===== -->
+    <section class="pre-orders" id="pre-orders" aria-label="Pre-order policy and process">
+
+      <h2 class="section-heading section-heading--script">the pre-order lowdown</h2>
+
+      <div class="policy-cards">
+        <div class="policy-card">
+          <div class="policy-card-figure">
+            <img src="mascot/pose1.webp" alt="Mascot marking a date on her calendar" loading="lazy">
+          </div>
+          <div class="policy-card-body">
+            <span class="policy-tag">Standard</span>
+            <h3>1 day's notice</h3>
+            <p>This is the sweet spot — enough time for the sponge, the chill, the soak, and the finish, without anything getting rushed.</p>
+          </div>
+        </div>
+
+        <div class="policy-card">
+          <div class="policy-card-figure">
+            <img src="mascot/pose2.webp" alt="Mascot looking at her phone, thinking it over" loading="lazy">
+          </div>
+          <div class="policy-card-body">
+            <span class="policy-tag policy-tag--accent">Need it sooner?</span>
+            <h3>Urgent orders</h3>
+            <p>Totally possible sometimes — just need at least 6 hours' heads up. Message me and let's see what we can do.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== The science / process timeline ===== -->
+      <div class="process">
+        <h3 class="section-heading section-heading--script process-heading">so here's the math</h3>
+        <p class="process-intro">a cake isn't one step. it's a chain of steps that each need their own time — skip one and the whole cake suffers. here's what actually happens between "order placed" and "cake ready":</p>
+
+        <ol class="process-steps reveal-up">
+          <li class="process-step">
+            <span class="process-num">1</span>
+            <div class="process-step-body">
+              <div class="process-step-head">
+                <h4>Mixing the batter</h4>
+                <span class="process-duration">25 min</span>
+              </div>
+              <p>Sponge batter made from scratch, every single time.</p>
+            </div>
+          </li>
+
+          <li class="process-step">
+            <span class="process-num">2</span>
+            <div class="process-step-body">
+              <div class="process-step-head">
+                <h4>Baking the sponge</h4>
+                <span class="process-duration">35–40 min</span>
+              </div>
+              <p>Low and slow, so it actually cooks through instead of just looking done.</p>
+            </div>
+          </li>
+
+          <li class="process-step">
+            <span class="process-num">3</span>
+            <div class="process-step-body">
+              <div class="process-step-head">
+                <h4>Cooling down</h4>
+                <span class="process-duration">~60 min</span>
+              </div>
+              <p>A warm sponge falls apart the moment you touch it — it needs time to set.</p>
+            </div>
+          </li>
+
+          <li class="process-step">
+            <span class="process-num">4</span>
+            <div class="process-step-body">
+              <div class="process-step-head">
+                <h4>Locking in the moisture</h4>
+                <span class="process-duration">a few hrs–overnight</span>
+              </div>
+              <p>Cling wrapped and chilled so the sponge stays soft, not dry, by the time it's your cake.</p>
+            </div>
+          </li>
+
+          <li class="process-step">
+            <span class="process-num">5</span>
+            <div class="process-step-body">
+              <div class="process-step-head">
+                <h4>Soaking the sponge</h4>
+                <span class="process-duration">2+ hrs, or during coverage</span>
+              </div>
+              <p>Three-milk sponges need at least 2 hours soaking before assembly. Simple sponges (pineapple, fudge, etc.) get soaked the moment coverage starts — no separate wait.</p>
+            </div>
+          </li>
+
+          <li class="process-step">
+            <span class="process-num">6</span>
+            <div class="process-step-body">
+              <div class="process-step-head">
+                <h4>Prepping the fillings</h4>
+                <span class="process-duration">15–20 min</span>
+              </div>
+              <p>Whipping cream, lotus spread, chocolate spread, crushed biscuit — whatever your cake calls for, made fresh.</p>
+            </div>
+          </li>
+
+          <li class="process-step">
+            <span class="process-num">7</span>
+            <div class="process-step-body">
+              <div class="process-step-head">
+                <h4>Covering &amp; finishing</h4>
+                <span class="process-duration">up to 30 min</span>
+              </div>
+              <p>The actual decorating — piping, spreading, making it look like your cake.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="process-total reveal-up">
+          <span class="process-total-figure">~5 hrs</span>
+          <p>of hands-on work — and that's before some cakes go back in the fridge to chill overnight. that's the pre-order math.</p>
+        </div>
+      </div>
+
+      <!-- ===== Closing teaser into Place Order ===== -->
+      <div class="order-teaser reveal-up">
+        <div class="order-teaser-figure">
+          <img src="mascot/pose3.webp" alt="Mascot holding out an order slip, inviting you to place an order" loading="lazy">
+        </div>
+        <div class="order-teaser-text">
+          <p>Got your dates sorted? Let's get it in the books.</p>
+          <a href="#place-order" class="btn-primary">Place Order</a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===== Reviews =====
+         PLACEHOLDER CONTENT: all 6 reviews below (name, item, quote) are
+         placeholders since real customer reviews aren't ready yet. Replace
+         the text inside each <p class="review-quote"> and the
+         <span class="review-name">/<span class="review-item"> lines with
+         real testimonials whenever they're in. Structure can stay as-is. -->
+    <section class="reviews" id="reviews" aria-label="Customer reviews">
+      <h2 class="section-heading section-heading--script">sweet things people said</h2>
+
+      <div class="reviews-track">
+
+        <div class="review-card">
+          <span class="review-tape" aria-hidden="true"></span>
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-quote">"Ordered a three-milk cake for my mom's birthday and it disappeared in one sitting. Worth every minute of the wait."</p>
+          <div class="review-meta">
+            <span class="review-name">Areeba K.</span>
+            <span class="review-item">Three Milk Cake</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <span class="review-tape" aria-hidden="true"></span>
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-quote">"The lotus biscoff cake was so soft, not overly sweet. Definitely ordering again."</p>
+          <div class="review-meta">
+            <span class="review-name">Hassan R.</span>
+            <span class="review-item">Lotus Biscoff Cake</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <span class="review-tape" aria-hidden="true"></span>
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-quote">"Loved that she checked in with me about the design before baking. Felt personal, not like ordering off a catalog."</p>
+          <div class="review-meta">
+            <span class="review-name">Meher S.</span>
+            <span class="review-item">Custom Birthday Cake</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <span class="review-tape" aria-hidden="true"></span>
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-quote">"Pre-ordered a day ahead like she asked, and it made sense once I saw everything that actually goes into one of these."</p>
+          <div class="review-meta">
+            <span class="review-name">Bilal A.</span>
+            <span class="review-item">Chocolate Fudge Cake</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <span class="review-tape" aria-hidden="true"></span>
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-quote">"Best red velvet I've had in Multan, hands down. My family keeps asking when we're ordering again."</p>
+          <div class="review-meta">
+            <span class="review-name">Zara N.</span>
+            <span class="review-item">Red Velvet Cake</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <span class="review-tape" aria-hidden="true"></span>
+          <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review-quote">"Small business, big heart. You can tell she actually cares about how it turns out."</p>
+          <div class="review-meta">
+            <span class="review-name">Fatima J.</span>
+            <span class="review-item">Pineapple Cake</span>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="reviews-hint">← swipe to see more →</p>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq" id="faq" aria-label="Frequently asked questions">
+      <h2 class="section-heading section-heading--script">quick answers before you order</h2>
+
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>
+            <span>How far in advance do I need to order?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer">
+            <p>Short version: at least 1 day. Head up to the <a href="#pre-orders">Pre-Orders</a> section for the full breakdown of why.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Do you take same-day or urgent orders?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer">
+            <p>Sometimes — but I need at least 6 hours' notice, no exceptions. That's the minimum it actually takes to bake, cool, and finish a cake properly. Message me first before assuming it's possible.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>How do I actually place an order?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer">
+            <p>Through WhatsApp, the order form on this site, or Instagram DM — whichever's easiest for you.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>What sizes do your cakes come in?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer">
+            <p>Bento, 1 pound, 2 pound, and 3.5 pound. How many people that feeds really depends on how much your crowd eats, so go with your gut on portion size.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Can I customize the flavor or design?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer">
+            <p>Right now I'm focused on perfecting my craft, so simple customizations — flavor swaps, basic design tweaks — I'm your person. For fully elaborate, fancy custom designs, you'll want to look elsewhere for now.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Do you do eggless cakes or cater to dietary restrictions?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer">
+            <p>Not at the moment — but that might change down the line.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>What payment methods do you accept?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer">
+            <p>Meezan Bank transfer, JazzCash, EasyPaisa, SadaPay, or NayaPay.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Do you deliver, or is it pickup only?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer">
+            <p>Both — delivery and pickup are available, but only within Multan for now.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Can I cancel or change my order after placing it?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer">
+            <p>You've got a 1-hour window after placing your order to make changes. After that, it's locked in — so it's worth double checking everything within that hour.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            <span>Why should I trust a home bakery over a proper cake shop?</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-answer">
+            <p>Anyone who's tried these cakes doesn't just order once — they come back. Every recipe here has been tested, redone, and perfected by hand until it's actually right, not just good enough. That's not a sales pitch, that's just what repeat customers look like.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- ===== Place Order ===== -->
+    <section class="place-order" id="place-order" aria-label="Place your order">
+      <h2 class="section-heading section-heading--script">let's get you a cake</h2>
+      <p class="place-order-intro">Review your cart, fill in your details, and hit send — it'll open a pre-filled WhatsApp message for you to confirm. Same info gets saved on our end too.</p>
+
+      <div class="checkout-summary" id="checkout-summary">
+        <h3 class="checkout-summary-title">Your Order</h3>
+        <div id="checkout-summary-body">
+          <p class="cart-empty">Your cart is empty — <a href="#menu">head up to the menu</a> to add something first.</p>
+        </div>
+        <div class="checkout-summary-total" id="checkout-summary-total" hidden>
+          <span>Total</span>
+          <span id="checkout-total-amount">Rs. 0</span>
+        </div>
+      </div>
+
+      <form class="order-form" id="order-form" action="https://formspree.io/f/xvkokaga" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New Butttercloud order!">
+        <input type="hidden" name="cart_items" id="cart-items-field">
+
+        <div class="form-row">
+          <label for="of-name">Your name</label>
+          <input type="text" id="of-name" name="name" required autocomplete="name">
+        </div>
+
+        <div class="form-row">
+          <label for="of-phone">Phone number</label>
+          <input type="tel" id="of-phone" name="phone" required autocomplete="tel" placeholder="03XX XXXXXXX">
+        </div>
+
+        <div class="form-row">
+          <label for="of-date">Date you need it by</label>
+          <input type="date" id="of-date" name="date_needed" required>
+        </div>
+
+        <div class="form-row">
+          <span class="form-label">Pickup or delivery?</span>
+          <div class="chip-group" role="radiogroup" aria-label="Pickup or delivery">
+            <input type="radio" id="fulfil-pickup" name="fulfillment" value="Pickup" required checked>
+            <label for="fulfil-pickup" class="chip">Pickup</label>
+
+            <input type="radio" id="fulfil-delivery" name="fulfillment" value="Delivery">
+            <label for="fulfil-delivery" class="chip">Delivery (Multan only)</label>
+          </div>
+        </div>
+
+        <div class="form-row" id="address-row" hidden>
+          <label for="of-address">Delivery address</label>
+          <textarea id="of-address" name="address" rows="2" placeholder="Full address in Multan"></textarea>
+        </div>
+
+        <div class="form-row">
+          <label for="of-message">Anything else? <span class="form-optional">(optional)</span></label>
+          <textarea id="of-message" name="message" rows="3" placeholder="Special instructions, occasion, message on the cake, etc."></textarea>
+        </div>
+
+        <div class="form-row">
+          <label for="of-photo">Reference photo <span class="form-optional">(optional)</span></label>
+          <input type="file" id="of-photo" name="reference_photo" accept="image/*">
+          <span class="form-hint">Only sent through the form, not visible in the WhatsApp message.</span>
+        </div>
+
+        <button type="submit" class="btn-primary order-submit">Send Order</button>
+        <p class="order-status" id="order-status" role="status"></p>
+
+      </form>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Butter Cloud logo" class="footer-logo">
+        <p class="footer-tagline">Homemade. Handmade. Worth the wait.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#story">Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#pre-orders">Pre-Orders</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+        <a href="#place-order">Order Now</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <!-- TODO: WhatsApp link uses the same WHATSAPP_NUMBER placeholder as
+             the order form in script.js — updates automatically once that's set -->
+        <a href="#" id="footer-whatsapp-link" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.instagram.com/butttercloud" target="_blank" rel="noopener">Instagram</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Location</h4>
+        <p>Pickup &amp; delivery available in Multan, Pakistan.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="footer-year"></span> Butttercloud. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
