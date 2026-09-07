@@ -62,7 +62,7 @@ if (revealEls.length) {
 //    (e.g. Pakistan mobile 03XX-XXXXXXX becomes "92XXXXXXXXXX")
 // 2. FORMSPREE_ENDPOINT: create a free form at https://formspree.io and
 //    paste its endpoint URL here (looks like https://formspree.io/f/xxxxxxxx)
-const WHATSAPP_NUMBER = "92XXXXXXXXXX"; // TODO: replace with real WhatsApp Business number
+const WHATSAPP_NUMBER = "923001334417"; // Butter Cloud WhatsApp Business number
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvkokaga";
 
 
@@ -80,27 +80,27 @@ const MENU_DATA = {
       {
         name: "Lotus Three Milk Cake",
         images: ["photos/lotus-three-milk-cake-hero.webp", "photos/lotus-three-milk-cake-slice.webp"],
-        sizePricing: { "Bento": 659, "1 lb": 1243, "2 lb": 2403, "3.5 lb": 4372 }
+        sizePricing: { "Bento": 659, "1 lb": 1249, "2 lb": 2409, "3.5 lb": 4379 }
       },
       {
         name: "Chocolate Three Milk Cake",
         images: [], // NEW item — no photos yet, shows "coming soon" placeholder
-        sizePricing: { "Bento": 579, "1 lb": 1083, "2 lb": 2083, "3.5 lb": 3812 }
+        sizePricing: { "Bento": 579, "1 lb": 1089, "2 lb": 2089, "3.5 lb": 3819 }
       },
       {
         name: "Pineapple Cake",
         images: ["photos/pineapple-cake-hero.webp", "photos/pineapple-cake-slice.webp"],
-        sizePricing: { "Bento": 490, "1 lb": 904, "2 lb": 1726, "3.5 lb": 3187 }
+        sizePricing: { "Bento": 499, "1 lb": 909, "2 lb": 1729, "3.5 lb": 3189 }
       },
       {
         name: "Chocolate Chip Cake",
         images: ["photos/chocolate-chip-cake-hero.webp", "photos/chocolate-chip-cake-slice.webp"],
-        sizePricing: { "Bento": 467, "1 lb": 860, "2 lb": 1637, "3.5 lb": 3032 }
+        sizePricing: { "Bento": 469, "1 lb": 869, "2 lb": 1639, "3.5 lb": 3039 }
       },
       {
         name: "Fudge Cake",
         images: ["photos/fudge-cake-hero.webp", "photos/fudge-cake-slice.webp"],
-        sizePricing: { "Bento": 833, "1 lb": 1592, "2 lb": 3100, "3.5 lb": 5593 }
+        sizePricing: { "Bento": 839, "1 lb": 1599, "2 lb": 3109, "3.5 lb": 5599 }
       }
     ]
   },
@@ -121,14 +121,14 @@ const MENU_DATA = {
     minQty: 4,
     note: "min. order 4",
     items: [
-      { name: "Lotus Cookies", unitPrice: 247, images: ["photos/lotus-cookies-hero.webp"] },
-      { name: "Chocolate Chip Cookies", unitPrice: 168, images: ["photos/chocolate-cookies-hero.webp"] }
+      { name: "Lotus Cookies", unitPrice: 249, images: ["photos/lotus-cookies-hero.webp"] },
+      { name: "Chocolate Chip Cookies", unitPrice: 169, images: ["photos/chocolate-cookies-hero.webp"] }
     ]
   },
   biscuits: {
     label: "Butter Biscuits",
     type: "unit",
-    unitPrice: 34, // per single biscuit
+    unitPrice: 39, // per single biscuit
     minQty: 15,
     note: "min. order 15",
     items: [
