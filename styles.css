@@ -17,6 +17,9 @@
 
 * { box-sizing: border-box; }
 
+/* Guarantee the native `hidden` attribute always wins over any component's
+   own `display` rule — without this, a rule like `.cart-panel { display:
+   flex }` can silently keep a "hidden" element visible. */
 [hidden] {
   display: none !important;
 }
@@ -42,6 +45,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ============================================
+   Sticky Header
+   ============================================ */
 .site-header {
   position: sticky;
   top: 0;
@@ -73,6 +79,7 @@ body {
   flex: 0 0 auto;
 }
 
+/* ---- Nav ---- */
 .site-nav {
   display: flex;
   align-items: center;
@@ -184,6 +191,9 @@ body {
   border-radius: 50%;
 }
 
+/* ============================================
+   Hero
+   ============================================ */
 .hero {
   position: relative;
   min-height: calc(100svh - var(--header-height));
@@ -242,6 +252,7 @@ body {
   outline-offset: 3px;
 }
 
+/* Decorative cloud blobs — subtle, asymmetric, low opacity */
 .hero-blob {
   position: absolute;
   border-radius: 50%;
@@ -273,6 +284,9 @@ body {
   .hero-blob--accent { bottom: 2%; left: -14%; }
 }
 
+/* ============================================
+   Story — scroll-triggered mini-comic
+   ============================================ */
 .story {
   position: relative;
   padding: 96px 24px 64px;
@@ -329,6 +343,7 @@ body {
   transform: translateY(0);
 }
 
+/* Odd beats: figure left, bubble right. Even beats: mirrored. */
 .beat:nth-child(even) {
   flex-direction: row-reverse;
 }
@@ -363,6 +378,7 @@ body {
   color: var(--text);
 }
 
+/* Speech bubble tail, pointing toward the mascot on each side */
 .beat:nth-child(odd) .beat-bubble::before {
   content: "";
   position: absolute;
@@ -422,6 +438,9 @@ body {
   }
 }
 
+/* ============================================
+   Pre-Orders
+   ============================================ */
 .pre-orders {
   padding: 40px 24px 96px;
   max-width: 1040px;
@@ -440,6 +459,7 @@ body {
   font-size: clamp(1.7rem, 3.6vw, 2.3rem);
 }
 
+/* ---- Policy cards ---- */
 .policy-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -524,6 +544,7 @@ body {
   }
 }
 
+/* ---- Process / science timeline ---- */
 .process {
   margin-bottom: 80px;
 }
@@ -673,6 +694,7 @@ body {
   .process-step { gap: 14px; }
 }
 
+/* ---- Order teaser ---- */
 .order-teaser {
   display: flex;
   align-items: center;
@@ -710,6 +732,7 @@ body {
   margin: 0;
 }
 
+/* Shared scroll-reveal for non-Story elements */
 .reveal-up {
   opacity: 0;
   transform: translateY(24px);
@@ -729,6 +752,9 @@ body {
   }
 }
 
+/* ============================================
+   Reviews
+   ============================================ */
 .reviews {
   padding: 40px 0 88px;
 }
@@ -834,6 +860,9 @@ body {
   .reviews-hint { display: none; }
 }
 
+/* ============================================
+   FAQ
+   ============================================ */
 .faq {
   padding: 40px 24px 100px;
   max-width: 700px;
@@ -924,6 +953,7 @@ body {
   text-underline-offset: 3px;
 }
 
+/* Gentle open animation */
 .faq-item summary {
   transition: color 0.2s ease;
 }
@@ -932,6 +962,9 @@ body {
   color: var(--text);
 }
 
+/* ============================================
+   Place Order
+   ============================================ */
 .place-order {
   padding: 40px 24px 110px;
   max-width: 560px;
@@ -1011,6 +1044,7 @@ body {
   opacity: 0.8;
 }
 
+/* Chip-style radio groups */
 .chip-group {
   display: flex;
   flex-wrap: wrap;
@@ -1071,6 +1105,7 @@ body {
   color: #B3554A;
 }
 
+/* ---- Multi-cake items ---- */
 .cake-items {
   display: flex;
   flex-direction: column;
@@ -1152,6 +1187,9 @@ body {
   border-color: var(--primary-deep);
 }
 
+/* ============================================
+   Menu
+   ============================================ */
 .menu {
   padding: 40px 24px 96px;
   max-width: 900px;
@@ -1206,6 +1244,7 @@ body {
   overflow: visible;
 }
 
+/* ---- Pop-out photo treatment ---- */
 .menu-item-photo-wrap {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -1217,6 +1256,7 @@ body {
   overflow: visible;
 }
 
+/* Stacked, absolutely-positioned so images can crossfade in place */
 .menu-item-photo {
   position: absolute;
   left: 50%;
@@ -1233,7 +1273,7 @@ body {
 
 .menu-item-photo.is-active {
   opacity: 1;
-  position: relative;
+  position: relative; /* first/active image sets the wrap's natural height */
 }
 
 .menu-item-card:hover .menu-item-photo.is-active,
@@ -1251,6 +1291,7 @@ body {
   100% { transform: translateX(-50%) scale(0.94) rotate(-1deg) translateY(4px); opacity: 1; }
 }
 
+/* ---- "Coming soon" placeholder (new items with no photos yet) ---- */
 .menu-item-photo-wrap--placeholder {
   background: #FFFDF8;
   border: 1.5px dashed rgba(78, 53, 36, 0.2);
@@ -1385,6 +1426,9 @@ body {
   background: var(--primary-deep);
 }
 
+/* ============================================
+   Cart — floating button + slide-out panel
+   ============================================ */
 .cart-fab {
   position: fixed;
   bottom: 22px;
@@ -1566,6 +1610,9 @@ body {
   cursor: pointer;
 }
 
+/* ============================================
+   Checkout summary (Place Order section)
+   ============================================ */
 .checkout-summary {
   background: #FFFDF8;
   border: 1.5px solid rgba(78, 53, 36, 0.14);
@@ -1609,6 +1656,9 @@ body {
   .cart-fab { bottom: 32px; right: 32px; }
 }
 
+/* ============================================
+   Footer
+   ============================================ */
 .site-footer {
   background: var(--text);
   color: var(--bg);
@@ -1705,6 +1755,11 @@ body {
   }
 }
 
+/* ============================================
+   Site-wide micro-animations
+   ============================================ */
+
+/* ---- Ambient floating clouds (fixed, behind all content) ---- */
 .ambient-clouds {
   position: fixed;
   inset: 0;
@@ -1763,12 +1818,14 @@ body {
   }
 }
 
+/* Hide on very small screens to avoid distracting from tight mobile layouts */
 @media (max-width: 480px) {
   .ambient-clouds {
     display: none;
   }
 }
 
+/* ---- Springy hover feel on interactive elements ---- */
 .btn-primary,
 .menu-add-btn,
 .chip,
@@ -1808,6 +1865,7 @@ body {
   }
 }
 
+/* ---- Cart wiggle on add ---- */
 @keyframes cart-wiggle {
   0%, 100% { transform: rotate(0); }
   20%      { transform: rotate(-10deg) scale(1.08); }
@@ -1826,6 +1884,9 @@ body {
   }
 }
 
+/* ============================================
+   Gallery
+   ============================================ */
 .gallery {
   padding: 40px 24px 96px;
   max-width: 1040px;
@@ -1904,6 +1965,7 @@ body {
   background: linear-gradient(to top, rgba(78, 53, 36, 0.75), transparent);
 }
 
+/* Lightbox */
 .gallery-lightbox {
   position: fixed;
   inset: 0;
@@ -1934,6 +1996,9 @@ body {
   cursor: pointer;
 }
 
+/* ============================================
+   Mascot Companion
+   ============================================ */
 .mascot-companion {
   position: fixed;
   bottom: 22px;
