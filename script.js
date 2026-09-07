@@ -12,6 +12,7 @@ function updateHeaderState() {
 window.addEventListener('scroll', updateHeaderState, { passive: true });
 updateHeaderState();
 
+// Mobile nav toggle
 const navToggle = document.getElementById('nav-toggle');
 const siteNav = document.getElementById('site-nav');
 
@@ -21,6 +22,7 @@ if (navToggle && siteNav) {
     navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
+  // Close the mobile menu once a link is tapped
   siteNav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       siteNav.classList.remove('is-open');
@@ -29,6 +31,7 @@ if (navToggle && siteNav) {
   });
 }
 
+// Story section + Pre-Orders elements: reveal as they scroll into view
 const revealEls = document.querySelectorAll('.beat, .policy-card, .reveal-up');
 
 if (revealEls.length) {
@@ -50,13 +53,29 @@ if (revealEls.length) {
   }
 }
 
+// ============================================
+// Place Order form
+// ============================================
+
+// IMPORTANT — replace these two placeholders before going live:
+// 1. WHATSAPP_NUMBER: full international format, digits only, no + or spaces
+//    (e.g. Pakistan mobile 03XX-XXXXXXX becomes "92XXXXXXXXXX")
+// 2. FORMSPREE_ENDPOINT: create a free form at https://formspree.io and
+//    paste its endpoint URL here (looks like https://formspree.io/f/xxxxxxxx)
 const WHATSAPP_NUMBER = "92XXXXXXXXXX"; // TODO: replace with real WhatsApp Business number
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvkokaga";
 
+
+// ============================================
+// Menu data & pricing
+// Real pricing (20% profit margin), rounded to the nearest whole rupee
+// from the source PDF's exact decimals. Ask Nash if a different rounding
+// (e.g. nearest 10) is preferred.
+// ============================================
 const MENU_DATA = {
   cakes: {
     label: "Cakes",
-    type: "cake",
+    type: "cake", // has size options — pricing now lives per-item, not per-category
     items: [
       {
         name: "Lotus Three Milk Cake",
@@ -65,7 +84,7 @@ const MENU_DATA = {
       },
       {
         name: "Chocolate Three Milk Cake",
-        images: [],
+        images: [], // NEW item — no photos yet, shows "coming soon" placeholder
         sizePricing: { "Bento": 579, "1 lb": 1083, "2 lb": 2083, "3.5 lb": 3812 }
       },
       {
@@ -87,8 +106,8 @@ const MENU_DATA = {
   },
   brownies: {
     label: "Brownies",
-    type: "unit",
-    unitPrice: 189,
+    type: "unit", // simple quantity, no size
+    unitPrice: 189, // per single brownie (3x3 in each)
     minQty: 6,
     note: "3×3 inches each · min. order 6",
     items: [
@@ -98,6 +117,7 @@ const MENU_DATA = {
   cookies: {
     label: "Cookies",
     type: "unit",
+    // Lotus and Chocolate Chip cookies are priced differently — see per-item unitPrice below
     minQty: 4,
     note: "min. order 4",
     items: [
@@ -108,7 +128,7 @@ const MENU_DATA = {
   biscuits: {
     label: "Butter Biscuits",
     type: "unit",
-    unitPrice: 34,
+    unitPrice: 34, // per single biscuit
     minQty: 15,
     note: "min. order 15",
     items: [
@@ -121,6 +141,9 @@ function formatPrice(amount) {
   return `Rs. ${amount.toLocaleString('en-PK')}`;
 }
 
+// ============================================
+// Cart state (persisted to localStorage so it survives navigation)
+// ============================================
 const CART_STORAGE_KEY = 'butttercloud_cart';
 let cart = [];
 
@@ -137,6 +160,7 @@ function saveCart() {
   try {
     localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
   } catch (err) {
+    // localStorage unavailable — cart just won't persist across reloads
   }
 }
 
@@ -149,6 +173,7 @@ function cartTotal() {
 }
 
 function addToCart(line) {
+  // Merge with an existing identical line (same name + size) by bumping qty
   const existing = cart.find(l => l.name === line.name && l.size === line.size);
   if (existing) {
     existing.qty += line.qty;
@@ -164,6 +189,7 @@ function triggerCartWiggle() {
   const fab = document.getElementById('cart-fab');
   if (!fab) return;
   fab.classList.remove('is-wiggling');
+  // Force reflow so the animation can restart even if triggered rapidly
   void fab.offsetWidth;
   fab.classList.add('is-wiggling');
   fab.addEventListener('animationend', () => {
@@ -177,6 +203,9 @@ function removeFromCart(index) {
   renderCart();
 }
 
+// ============================================
+// Render: Menu section
+// ============================================
 function renderMenu() {
   Object.entries(MENU_DATA).forEach(([key, category]) => {
     const container = document.getElementById(`menu-${key}`);
@@ -265,6 +294,7 @@ function renderMenu() {
         });
 
       } else {
+        // Simple unit-priced item (brownies, cookies, biscuits)
         const unitPrice = item.unitPrice !== undefined ? item.unitPrice : category.unitPrice;
         let qty = category.minQty;
 
@@ -313,6 +343,9 @@ function renderMenu() {
   });
 }
 
+// ============================================
+// Menu item photo crossfade (hover-to-cycle through angles)
+// ============================================
 const prefersReducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 function setupPhotoCrossfade(card) {
@@ -320,7 +353,7 @@ function setupPhotoCrossfade(card) {
   if (!wrap) return;
 
   const photos = wrap.querySelectorAll('.menu-item-photo');
-  if (photos.length < 2) return;
+  if (photos.length < 2) return; // nothing to cycle — hero image just sits static
 
   let activeIndex = 0;
   let cycleTimer = null;
@@ -330,7 +363,7 @@ function setupPhotoCrossfade(card) {
   }
 
   function startCycle() {
-    if (prefersReducedMotionQuery.matches) return;
+    if (prefersReducedMotionQuery.matches) return; // static hero image only
     if (cycleTimer) return;
     cycleTimer = setInterval(() => {
       activeIndex = (activeIndex + 1) % photos.length;
@@ -353,6 +386,9 @@ function setupPhotoCrossfade(card) {
   card.addEventListener('focusout', stopCycle);
 }
 
+// ============================================
+// Render: Cart panel + FAB + checkout summary
+// ============================================
 function renderCartLines(container, { showRemove }) {
   container.innerHTML = '';
 
@@ -393,6 +429,7 @@ function renderCart() {
   renderCartLines(document.getElementById('cart-panel-body'), { showRemove: true });
   document.getElementById('cart-total').textContent = formatPrice(cartTotal());
 
+  // Checkout summary (Place Order section)
   const summaryBody = document.getElementById('checkout-summary-body');
   const summaryTotal = document.getElementById('checkout-summary-total');
   if (summaryBody) {
@@ -406,6 +443,9 @@ function renderCart() {
   }
 }
 
+// ============================================
+// Cart panel open/close
+// ============================================
 const cartFab = document.getElementById('cart-fab');
 const cartPanel = document.getElementById('cart-panel');
 const cartOverlay = document.getElementById('cart-overlay');
@@ -456,9 +496,13 @@ function observeMenuCards() {
   cards.forEach(card => observer.observe(card));
 }
 
+// ============================================
+// Place Order form (checkout)
+// ============================================
 const orderForm = document.getElementById('order-form');
 
 if (orderForm) {
+  // Toggle delivery address field based on pickup/delivery choice
   const fulfillmentRadios = orderForm.querySelectorAll('input[name="fulfillment"]');
   const addressRow = document.getElementById('address-row');
   const addressField = document.getElementById('of-address');
@@ -479,6 +523,7 @@ if (orderForm) {
   });
   updateAddressVisibility();
 
+  // Build the WhatsApp message text from cart + form values
   function buildWhatsAppMessage(form) {
     const get = (name) => (form.elements[name] ? form.elements[name].value : '').trim();
     const fulfillment = form.querySelector('input[name="fulfillment"]:checked');
@@ -534,9 +579,13 @@ if (orderForm) {
 
       if (whatsappReady) {
         const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        // Open WhatsApp immediately (must happen synchronously on the click
+        // to avoid popup blockers)
         window.open(waUrl, '_blank');
         statusEl.textContent = 'Opening WhatsApp — send the message to confirm your order!';
       } else {
+        // WhatsApp number not set up yet — form submission still works,
+        // just skips the WhatsApp step until WHATSAPP_NUMBER is filled in above.
         statusEl.textContent = "Order sent! We'll reach out to confirm shortly.";
       }
 
@@ -570,6 +619,9 @@ if (orderForm) {
   });
 }
 
+// ============================================
+// Footer: auto year + WhatsApp link
+// ============================================
 const footerYear = document.getElementById('footer-year');
 if (footerYear) {
   footerYear.textContent = new Date().getFullYear();
@@ -581,11 +633,15 @@ if (footerWhatsappLink) {
   if (whatsappReady) {
     footerWhatsappLink.href = `https://wa.me/${WHATSAPP_NUMBER}`;
   } else {
+    // No real number yet — point to the order form instead of a dead link
     footerWhatsappLink.href = '#place-order';
     footerWhatsappLink.removeAttribute('target');
   }
 }
 
+// ============================================
+// Gallery lightbox
+// ============================================
 const galleryGrid = document.getElementById('gallery-grid');
 
 if (galleryGrid) {
@@ -621,6 +677,9 @@ if (galleryGrid) {
   });
 }
 
+// ============================================
+// Mascot companion — idle blink cycle + wave on hover/tap
+// ============================================
 const mascotBtn = document.getElementById('mascot-companion');
 const mascotImg = document.getElementById('mascot-companion-img');
 
@@ -633,7 +692,7 @@ if (mascotBtn && mascotImg) {
   let isWaving = false;
 
   function scheduleBlink() {
-    const delay = 3000 + Math.random() * 4000;
+    const delay = 3000 + Math.random() * 4000; // blink every ~3-7s
     idleTimer = setTimeout(() => {
       if (!isWaving) {
         mascotImg.src = BLINK_SRC;
