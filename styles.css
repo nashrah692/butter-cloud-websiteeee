@@ -284,6 +284,108 @@ body {
   .hero-blob--accent { bottom: 2%; left: -14%; }
 }
 
+/* ---- Floating 3D cupcake (pure CSS, no image assets) ---- */
+.hero-3d-stage {
+  position: absolute;
+  top: 50%;
+  right: 8%;
+  z-index: 1;
+  width: min(200px, 20vw);
+  height: min(200px, 20vw);
+  perspective: 900px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.hero-cupcake-float {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: cupcake-bob 6s ease-in-out infinite;
+}
+
+.hero-cupcake-tilt {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.35s ease-out;
+}
+
+@keyframes cupcake-bob {
+  0%, 100% { transform: translateY(0) rotateY(-8deg) rotateZ(-2deg); }
+  50%      { transform: translateY(-16px) rotateY(8deg) rotateZ(2deg); }
+}
+
+.cupcake-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 74%;
+  height: 42%;
+  transform: translateX(-50%) translateZ(4px);
+  background: repeating-linear-gradient(
+    100deg,
+    var(--primary-deep) 0 12%,
+    var(--primary) 12% 24%
+  );
+  border-radius: 6px 6px 26px 26px;
+  box-shadow: 0 14px 22px rgba(78, 53, 36, 0.24);
+}
+
+.cupcake-icing {
+  position: absolute;
+  left: 50%;
+  bottom: 36%;
+  width: 82%;
+  height: 50%;
+  transform: translateX(-50%) translateZ(10px);
+  background: linear-gradient(180deg, #FFF8EF 0%, var(--accent) 100%);
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  box-shadow: inset 0 -6px 10px rgba(78, 53, 36, 0.08), 0 10px 16px rgba(78, 53, 36, 0.2);
+}
+
+.cupcake-icing--2 {
+  bottom: 56%;
+  width: 58%;
+  height: 38%;
+  transform: translateX(-50%) translateZ(16px);
+  background: linear-gradient(180deg, #FFFDF8 0%, var(--primary) 100%);
+  opacity: 0.92;
+}
+
+.cupcake-cherry {
+  position: absolute;
+  left: 50%;
+  top: 6%;
+  width: 15%;
+  height: 15%;
+  transform: translateX(-50%) translateZ(22px);
+  background: radial-gradient(circle at 35% 30%, #FF8A8A, #C24D4D 70%);
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(78, 53, 36, 0.25);
+}
+
+.cupcake-sprinkle {
+  position: absolute;
+  width: 8%;
+  height: 3%;
+  border-radius: 3px;
+  transform: translateZ(18px);
+}
+.cupcake-sprinkle.s1 { top: 26%; left: 28%; background: var(--primary-deep); transform: translateZ(18px) rotate(30deg); }
+.cupcake-sprinkle.s2 { top: 18%; left: 54%; background: var(--accent); transform: translateZ(18px) rotate(-20deg); }
+.cupcake-sprinkle.s3 { top: 38%; left: 62%; background: #E8C46B; transform: translateZ(18px) rotate(60deg); }
+.cupcake-sprinkle.s4 { top: 32%; left: 44%; background: var(--text-soft); transform: translateZ(18px) rotate(10deg); }
+
+@media (max-width: 880px) {
+  .hero-3d-stage { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cupcake-float { animation: none; }
+}
+
 /* ============================================
    Story — scroll-triggered mini-comic
    ============================================ */
@@ -1328,6 +1430,17 @@ body {
   gap: 12px;
   position: relative;
   overflow: visible;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+  will-change: transform;
+}
+
+.menu-item-card.is-tilting {
+  transition: transform 0.08s linear, box-shadow 0.3s ease;
+}
+
+.menu-item-card:hover {
+  box-shadow: 0 16px 28px rgba(78, 53, 36, 0.16);
 }
 
 /* ---- Pop-out photo treatment ---- */

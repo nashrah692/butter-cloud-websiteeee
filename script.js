@@ -473,6 +473,36 @@ loadCart();
 renderMenu();
 renderCart();
 observeMenuCards();
+setupMenuCardTilt();
+
+function setupMenuCardTilt() {
+  const cards = document.querySelectorAll('.menu-item-card');
+  if (!cards.length) return;
+
+  const supportsFineHoverMenu = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const prefersReducedMotionMenu = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!supportsFineHoverMenu || prefersReducedMotionMenu) return;
+
+  const MAX_TILT_DEG_MENU = 6; // gentle — the card already has its own photo pop-out motion
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width;
+      const py = (e.clientY - rect.top) / rect.height;
+      const rotateY = (px - 0.5) * MAX_TILT_DEG_MENU * 2;
+      const rotateX = (0.5 - py) * MAX_TILT_DEG_MENU * 2;
+
+      card.classList.add('is-tilting');
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.classList.remove('is-tilting');
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    });
+  });
+}
 
 function observeMenuCards() {
   const cards = document.querySelectorAll('.menu-item-card');
@@ -826,4 +856,54 @@ if (mascotBtn && mascotImg) {
   mascotBtn.addEventListener('focus', playWave);
 
   scheduleBlink();
+}
+
+
+// ============================================
+// Hero: floating 3D cupcake — mouse tilt + scroll parallax
+// ============================================
+const heroSection = document.getElementById('hero');
+const heroStage = document.querySelector('.hero-3d-stage');
+const heroCupcakeTilt = document.querySelector('.hero-cupcake-tilt');
+
+if (heroSection && heroStage && heroCupcakeTilt) {
+  const supportsFineHoverHero = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const prefersReducedMotionHero = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (supportsFineHoverHero && !prefersReducedMotionHero) {
+    const MAX_TILT_DEG_HERO = 14;
+
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width;
+      const py = (e.clientY - rect.top) / rect.height;
+      const rotateY = (px - 0.5) * MAX_TILT_DEG_HERO * 2;
+      const rotateX = (0.5 - py) * MAX_TILT_DEG_HERO * 2;
+      heroCupcakeTilt.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    heroSection.addEventListener('mouseleave', () => {
+      heroCupcakeTilt.style.transform = '';
+    });
+  }
+
+  if (!prefersReducedMotionHero) {
+    let heroParallaxTicking = false;
+
+    function updateHeroParallax() {
+      const rect = heroSection.getBoundingClientRect();
+      const progress = Math.min(Math.max(-rect.top / rect.height, 0), 1);
+      heroStage.style.transform = `translateY(calc(-50% + ${progress * 60}px))`;
+      heroParallaxTicking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!heroParallaxTicking) {
+        window.requestAnimationFrame(updateHeroParallax);
+        heroParallaxTicking = true;
+      }
+    }, { passive: true });
+
+    updateHeroParallax();
+  }
 }
