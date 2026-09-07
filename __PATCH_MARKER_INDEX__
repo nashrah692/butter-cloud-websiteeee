@@ -1,2 +1,0 @@
-          <input type="file" id="of-photo" name="reference_photo" accept="image/*">
-          <span class="form-hint">This won't attach anywhere automatically — please also send it in the WhatsApp chat after you order.</span>

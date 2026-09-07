@@ -548,7 +548,7 @@ if (orderForm) {
       lines.push(`Notes: ${message}`);
     }
     if (hasPhoto) {
-      lines.push('(Reference photo attached via the order form)');
+      lines.push("(I'll send the reference photo in this chat separately)");
     }
 
     return lines.join('\n');
@@ -590,6 +590,11 @@ if (orderForm) {
       }
 
       const formData = new FormData(orderForm);
+      // Formspree's free plan doesn't support file uploads — submissions
+      // with a file attached get rejected outright. Strip it here so the
+      // rest of the order still goes through; the customer is asked (via
+      // the WhatsApp message + form hint) to send the photo in the chat.
+      formData.delete('reference_photo');
       fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         body: formData,
