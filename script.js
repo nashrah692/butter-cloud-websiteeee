@@ -728,6 +728,64 @@ if (galleryGrid) {
 }
 
 // ============================================
+// Reviews: scroll-triggered reveal + 3D tilt hover
+// ============================================
+const reviewCards = document.querySelectorAll('.review-card');
+
+if (reviewCards.length) {
+  if (prefersReducedMotionGallery) {
+    reviewCards.forEach(card => card.classList.add('is-visible'));
+  } else {
+    // Stagger the entrance per card, then clear the delay so later
+    // hover interactions respond instantly instead of lagging.
+    reviewCards.forEach((card, idx) => {
+      card.style.transitionDelay = `${idx * 80}ms`;
+    });
+
+    const reviewObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          card.classList.add('is-visible');
+          card.addEventListener('transitionend', function clearDelay(evt) {
+            if (evt.propertyName === 'transform') {
+              card.style.transitionDelay = '';
+              card.removeEventListener('transitionend', clearDelay);
+            }
+          });
+          reviewObserver.unobserve(card);
+        }
+      });
+    }, { threshold: 0.25, rootMargin: '0px 0px -40px 0px' });
+
+    reviewCards.forEach(card => reviewObserver.observe(card));
+
+    if (supportsFineHover) {
+      const REVIEW_MAX_TILT_DEG = 10;
+
+      reviewCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const px = (e.clientX - rect.left) / rect.width;
+          const py = (e.clientY - rect.top) / rect.height;
+
+          const rotateY = (px - 0.5) * REVIEW_MAX_TILT_DEG * 2;
+          const rotateX = (0.5 - py) * REVIEW_MAX_TILT_DEG * 2;
+
+          card.classList.add('is-tilting');
+          card.style.transform = `translateY(0) rotate(var(--base-rot)) perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.classList.remove('is-tilting');
+          card.style.transform = 'translateY(0) rotate(var(--base-rot)) scale(1)';
+        });
+      });
+    }
+  }
+}
+
+// ============================================
 // Mascot companion — idle blink cycle + wave on hover/tap
 // ============================================
 const mascotBtn = document.getElementById('mascot-companion');
