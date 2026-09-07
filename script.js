@@ -645,6 +645,38 @@ if (footerWhatsappLink) {
 }
 
 // ============================================
+// Gallery: 3D tilt hover
+// ============================================
+const galleryTiltItems = document.querySelectorAll('.gallery-item:not(.gallery-item--placeholder)');
+const supportsFineHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+const prefersReducedMotionGallery = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (galleryTiltItems.length && supportsFineHover && !prefersReducedMotionGallery) {
+  const MAX_TILT_DEG = 9;
+
+  galleryTiltItems.forEach(item => {
+    item.addEventListener('mousemove', (e) => {
+      const rect = item.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width;
+      const py = (e.clientY - rect.top) / rect.height;
+
+      const rotateY = (px - 0.5) * MAX_TILT_DEG * 2;
+      const rotateX = (0.5 - py) * MAX_TILT_DEG * 2;
+
+      item.classList.add('is-tilting');
+      item.style.setProperty('--mx', `${px * 100}%`);
+      item.style.setProperty('--my', `${py * 100}%`);
+      item.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+
+    item.addEventListener('mouseleave', () => {
+      item.classList.remove('is-tilting');
+      item.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+  });
+}
+
+// ============================================
 // Gallery lightbox
 // ============================================
 const galleryGrid = document.getElementById('gallery-grid');
@@ -665,8 +697,21 @@ if (galleryGrid) {
     `;
     document.body.appendChild(lightbox);
 
+    // Double rAF so the browser registers the initial (closed) state
+    // before flipping to .is-open, guaranteeing the transition plays.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        lightbox.classList.add('is-open');
+      });
+    });
+
     function closeLightbox() {
-      lightbox.remove();
+      if (prefersReducedMotionGallery) {
+        lightbox.remove();
+        return;
+      }
+      lightbox.classList.remove('is-open');
+      lightbox.addEventListener('transitionend', () => lightbox.remove(), { once: true });
     }
     lightbox.addEventListener('click', (evt) => {
       if (evt.target === lightbox || evt.target.classList.contains('gallery-lightbox-close')) {
