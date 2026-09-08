@@ -42,31 +42,88 @@
 
   <main id="top">
     <!-- ===== Hero ===== -->
-    <section class="hero" id="hero">
-      <div class="hero-blob hero-blob--primary" aria-hidden="true"></div>
-      <div class="hero-blob hero-blob--accent" aria-hidden="true"></div>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="hero-container">
+        <div class="hero-content">
+          <span class="script-accent hero-subtitle">cozy & homemade</span>
+          <h1 class="hero-title">Worth the <br class="mobile-only">triple 't' wait!</h1>
+          <p class="hero-description">
+            Whimsical, freshly-baked treats made with love in Multan. Experience our fluffy, cloud-like cakes and cookies crafted to brighten your day.
+          </p>
+          <div class="hero-actions">
+            <a href="#menu" class="btn btn-primary">Explore Menu</a>
+            <a href="#story" class="btn btn-secondary">Our Story</a>
+          </div>
+        </div>
+        <div class="hero-mascot-container">
+          <img src="logo.png" alt="Butttercloud Mascot" class="hero-mascot">
+          <div class="sticker-badge">Freshly Baked!</div>
+        </div>
+      </div>
+    </section>
 
-      <div class="hero-3d-stage" aria-hidden="true">
-        <div class="hero-cupcake-float">
-          <div class="hero-cupcake-tilt">
-            <div class="cupcake-cherry"></div>
-            <div class="cupcake-icing cupcake-icing--2"></div>
-            <div class="cupcake-icing"></div>
-            <div class="cupcake-sprinkle s1"></div>
-            <div class="cupcake-sprinkle s2"></div>
-            <div class="cupcake-sprinkle s3"></div>
-            <div class="cupcake-sprinkle s4"></div>
-            <div class="cupcake-wrap"></div>
+<!-- MENU SECTION -->
+<section id="menu" class="menu-section">
+  <div class="menu-container">
+    <div class="section-header">
+      <span class="script-accent section-subtitle">Our Menu</span>
+      <h2 class="section-title">Freshly Baked Goodness</h2>
+      <p class="section-description">Handmade daily with premium ingredients. Select your favorites below!</p>
+    </div>
+
+    <div class="menu-grid">
+      <!-- Item 1 -->
+      <div class="menu-card">
+        <div class="card-image-wrapper">
+          <img src="logo.png" alt="Cloud Cake" class="card-image">
+          <span class="card-sticker">Signature</span>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Cloud Vanilla Cake</h3>
+          <p class="card-description">Extremely fluffy sponge layers filled with whipped cream cheese and fresh berries.</p>
+          <div class="card-footer">
+            <span class="card-price">Rs. 1,800</span>
+            <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="1" data-name="Cloud Vanilla Cake" data-price="1800">Add to Bag</button>
           </div>
         </div>
       </div>
 
-      <div class="hero-content">
-        <h1 class="hero-name">Butttercloud</h1>
-        <p class="hero-tagline">Homemade. Handmade. Worth the wait.</p>
-        <a href="#menu" class="btn-primary" id="view-menu-btn">View Menu</a>
+      <!-- Item 2 -->
+      <div class="menu-card">
+        <div class="card-image-wrapper">
+          <img src="logo.png" alt="Chocolate Fudge" class="card-image">
+          <span class="card-sticker">Fudgy</span>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Midnight Fudge Cake</h3>
+          <p class="card-description">Rich dark chocolate layers coated in a decadent velvet frosting.</p>
+          <div class="card-footer">
+            <span class="card-price">Rs. 2,100</span>
+            <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="2" data-name="Midnight Fudge Cake" data-price="2100">Add to Bag</button>
+          </div>
+        </div>
       </div>
-    </section>
+
+      <!-- Item 3 -->
+      <div class="menu-card">
+        <div class="card-image-wrapper">
+          <img src="logo.png" alt="Lotus Biscoff Cookies" class="card-image">
+          <span class="card-sticker">New!</span>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">Biscoff Dream Cookies</h3>
+          <p class="card-description">Warm, chewy brown-butter cookies packed with Lotus cookie butter chunks.</p>
+          <div class="card-footer">
+            <span class="card-price">Rs. 450</span>
+            <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="3" data-name="Biscoff Dream Cookies" data-price="450">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- ===== Story ===== -->
     <section class="story" id="story" aria-label="Why Butttercloud cakes are made the way they are">
@@ -635,6 +692,20 @@
       <p>&copy; <span id="footer-year"></span> Butttercloud. All rights reserved.</p>
     </div>
   </footer>
+
+<!-- BOTTOM STICKY MOBILE CART BAR -->
+<div id="mobile-sticky-cart" class="sticky-cart-bar" style="display: none;">
+  <div class="sticky-cart-content">
+    <div class="sticky-cart-left">
+      <span class="sticky-cart-badge" id="sticky-cart-count">0</span>
+      <span class="sticky-cart-text">Items in Bag</span>
+    </div>
+    <div class="sticky-cart-right">
+      <span class="sticky-cart-total" id="sticky-cart-total">Rs. 0</span>
+      <button class="sticky-cart-btn" id="sticky-cart-trigger">View Cart ➔</button>
+    </div>
+  </div>
+</div>
 
   <script src="script.js"></script>
 </body>

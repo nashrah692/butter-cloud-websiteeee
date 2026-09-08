@@ -907,3 +907,102 @@ if (heroSection && heroStage && heroCupcakeTilt) {
     updateHeroParallax();
   }
 }
+
+
+
+
+// ============================================
+// Whimsical Custom Cursor & Touch-Safe Smooth Scroll (Task 6)
+// ============================================
+(function() {
+  const isMobileDevice = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
+
+  if (!isMobileDevice) {
+    // 1. Cozy Smooth Scroll for Desktop Anchor Clicks
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#' || targetId.startsWith('#menu-')) return; // let menu category filters run naturally
+        
+        e.preventDefault();
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // 2. Custom Hover Cursor for Desktop Users
+    const cursor = document.createElement("div");
+    cursor.className = "custom-cursor";
+    document.body.appendChild(cursor);
+
+    document.addEventListener("mousemove", (e) => {
+      // Soft, smooth cursor tracking using requestAnimationFrame to ensure 60fps
+      requestAnimationFrame(() => {
+        cursor.style.transform = `translate3d(${e.clientX - 10}px, ${e.clientY - 10}px, 0)`;
+      });
+    });
+
+    // Make cursor expand playfully on interactive targets
+    const hoverTargets = document.querySelectorAll("a, button, .menu-item-card, .review-card, .gallery-item");
+    hoverTargets.forEach(target => {
+      target.addEventListener("mouseenter", () => cursor.classList.add("hovering"));
+      target.addEventListener("mouseleave", () => cursor.classList.remove("hovering"));
+    });
+  }
+})();
+
+
+// ============================================
+// Sync Mobile Sticky Cart Bar with Cart State (Task 9)
+// ============================================
+(function() {
+  const isMobile = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
+  if (!isMobile) return; // Only process on mobile
+
+  const stickyBar = document.getElementById("mobile-sticky-cart");
+  const stickyCount = document.getElementById("sticky-cart-count");
+  const stickyTotal = document.getElementById("sticky-cart-total");
+  const stickyTrigger = document.getElementById("sticky-cart-trigger");
+
+  // Hook into the page's renderCart function to keep things in sync!
+  const originalRenderCart = window.renderCart || typeof renderCart === 'function' ? renderCart : null;
+
+  function updateMobileStickyBar() {
+    if (typeof cart !== 'undefined' && cart.length > 0) {
+      stickyBar.style.display = "block";
+      
+      const totalCount = cart.reduce((sum, l) => sum + l.qty, 0);
+      const totalAmount = cart.reduce((sum, line) => sum + (line.unitPrice * line.qty), 0);
+
+      if (stickyCount) stickyCount.textContent = totalCount;
+      if (stickyTotal) stickyTotal.textContent = `Rs. ${totalAmount.toLocaleString('en-PK')}`;
+    } else {
+      stickyBar.style.display = "none";
+    }
+  }
+
+  // Intercept renderCart calls to run our updates too
+  if (originalRenderCart) {
+    window.renderCart = function() {
+      originalRenderCart();
+      updateMobileStickyBar();
+    };
+  }
+
+  // Attach click listener to view the cart
+  if (stickyTrigger) {
+    stickyTrigger.addEventListener("click", () => {
+      if (typeof openCart === "function") {
+        openCart();
+      }
+    });
+  }
+
+  // Run once on load
+  setTimeout(updateMobileStickyBar, 200);
+})();

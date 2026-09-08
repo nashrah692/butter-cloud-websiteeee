@@ -2290,3 +2290,434 @@ body {
     left: 16px;
   }
 }
+
+
+/* --- HERO SECTION --- */
+.hero-section {
+  padding: 80px 20px 40px 20px;
+  background-color: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Mobile first: vertical stacking */
+  align-items: center;
+  gap: 40px;
+  text-align: center;
+}
+
+.hero-subtitle {
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-family: 'Work Sans', sans-serif;
+  font-size: clamp(1rem, 3vw, 1.15rem);
+  color: var(--color-muted);
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column; /* Easy thumb tap buttons stacked on mobile */
+  gap: 15px;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Primary and Secondary Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px; /* Safe mobile touch target */
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  box-shadow: 0 4px 10px rgba(155, 183, 212, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text);
+  border: 2px solid var(--color-text);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(61, 45, 46, 0.05);
+}
+
+/* Mascot Wrapper styling */
+.hero-mascot-container {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-mascot {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: floaty 4s ease-in-out infinite;
+}
+
+/* Sticker badge from guidelines */
+.sticker-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: var(--color-sticker);
+  color: var(--color-text);
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transform: rotate(12deg);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Subtle float animation for the mascot */
+@keyframes floaty {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --- DESKTOP ENHANCEMENTS (Tablet & above) --- */
+@media (min-width: 768px) {
+  .hero-container {
+    flex-direction: row; /* Horizontal side-by-side on laptops */
+    text-align: left;
+    justify-content: space-between;
+  }
+  
+  .hero-content {
+    flex: 1;
+  }
+  
+  .hero-actions {
+    flex-direction: row; /* Horizontal button row on desktop */
+    max-width: none;
+    margin: 0;
+  }
+  
+  .hero-mascot-container {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .mobile-only {
+    display: none;
+  }
+}
+
+
+
+
+
+/* --- MENU SECTION --- */
+.menu-section {
+  padding: 60px 20px;
+  background-color: var(--color-bg);
+}
+
+.menu-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-subtitle {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  display: block;
+}
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-text);
+  margin: 5px 0 15px 0;
+}
+
+.section-description {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--color-muted);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Grid Layout (Mobile-first is 1 column) */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+/* Card Styling */
+.menu-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(61, 45, 46, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(61, 45, 46, 0.05);
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(61, 45, 46, 0.08);
+}
+
+.card-image-wrapper {
+  position: relative;
+  height: 200px;
+  background-color: #FAF6EE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+.card-sticker {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: var(--color-sticker);
+  color: var(--color-text);
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  transform: rotate(-3deg);
+}
+
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-price {
+  font-family: 'Fraunces', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* Small Button Variant for Card */
+.btn-sm {
+  min-height: 40px;
+  padding: 8px 18px;
+  font-size: 0.9rem;
+}
+
+/* --- TABLET & DESKTOP ENHANCEMENTS --- */
+@media (min-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 items side-by-side */
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 items side-by-side */
+  }
+}
+
+
+
+/* --- CUSTOM CURSOR STYLE --- */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-primary);
+  opacity: 0.3;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* Make sure click goes through the cursor */
+  z-index: 9999;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+  transform: translate3d(-100px, -100px, 0); /* Hide initially */
+}
+
+/* Grow the cursor when hovering over clickable items */
+.custom-cursor.hovering {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-hover);
+  opacity: 0.15;
+}
+
+/* Totally turn off the custom cursor on touch screens */
+@media (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+
+
+/* --- BOTTOM-STICKY MOBILE CART BAR --- */
+.sticky-cart-bar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 500px;
+  background-color: var(--color-text); /* Chocolate Plum background */
+  color: #FFFFFF;
+  border-radius: 40px;
+  padding: 12px 24px;
+  box-shadow: 0 10px 30px rgba(61, 45, 46, 0.25);
+  z-index: 999;
+  font-family: 'Work Sans', sans-serif;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.sticky-cart-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sticky-cart-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sticky-cart-badge {
+  background-color: var(--color-sticker); /* Popcorn Yellow Badge */
+  color: var(--color-text);
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.sticky-cart-text {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.sticky-cart-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.sticky-cart-total {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.sticky-cart-btn {
+  background-color: var(--color-primary); /* Cerulean Button */
+  border: none;
+  color: #FFFFFF;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sticky-cart-btn:hover {
+  background-color: var(--color-hover);
+}
+
+/* Hide on desktop, only display on mobile */
+@media (min-width: 768px) {
+  .sticky-cart-bar {
+    display: none !important;
+  }
+}
