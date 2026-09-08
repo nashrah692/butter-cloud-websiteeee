@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Butter Cloud — Homemade. Handmade. Worth the wait.</title>
+  <title>Butter Cloud — Homemade. Handmade. Worth the taste.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Pacifico&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -42,88 +42,17 @@
 
   <main id="top">
     <!-- ===== Hero ===== -->
-    <!-- HERO SECTION -->
     <section id="hero" class="hero-section">
       <div class="hero-container">
         <div class="hero-content">
-          <span class="script-accent hero-subtitle">cozy & homemade</span>
-          <h1 class="hero-title">Worth the <br class="mobile-only">triple 't' wait!</h1>
-          <p class="hero-description">
-            Whimsical, freshly-baked treats made with love in Multan. Experience our fluffy, cloud-like cakes and cookies crafted to brighten your day.
-          </p>
+          <h1 class="hero-title">butttercloud</h1>
+          <p class="hero-description">Homemade. Handmade. Worth the taste.</p>
           <div class="hero-actions">
-            <a href="#menu" class="btn btn-primary">Explore Menu</a>
-            <a href="#story" class="btn btn-secondary">Our Story</a>
+            <a href="#menu" class="btn btn-primary">View Menu</a>
           </div>
-        </div>
-        <div class="hero-mascot-container">
-          <img src="logo.png" alt="Butttercloud Mascot" class="hero-mascot">
-          <div class="sticker-badge">Freshly Baked!</div>
         </div>
       </div>
     </section>
-
-<!-- MENU SECTION -->
-<section id="menu" class="menu-section">
-  <div class="menu-container">
-    <div class="section-header">
-      <span class="script-accent section-subtitle">Our Menu</span>
-      <h2 class="section-title">Freshly Baked Goodness</h2>
-      <p class="section-description">Handmade daily with premium ingredients. Select your favorites below!</p>
-    </div>
-
-    <div class="menu-grid">
-      <!-- Item 1 -->
-      <div class="menu-card">
-        <div class="card-image-wrapper">
-          <img src="logo.png" alt="Cloud Cake" class="card-image">
-          <span class="card-sticker">Signature</span>
-        </div>
-        <div class="card-content">
-          <h3 class="card-title">Cloud Vanilla Cake</h3>
-          <p class="card-description">Extremely fluffy sponge layers filled with whipped cream cheese and fresh berries.</p>
-          <div class="card-footer">
-            <span class="card-price">Rs. 1,800</span>
-            <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="1" data-name="Cloud Vanilla Cake" data-price="1800">Add to Bag</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 2 -->
-      <div class="menu-card">
-        <div class="card-image-wrapper">
-          <img src="logo.png" alt="Chocolate Fudge" class="card-image">
-          <span class="card-sticker">Fudgy</span>
-        </div>
-        <div class="card-content">
-          <h3 class="card-title">Midnight Fudge Cake</h3>
-          <p class="card-description">Rich dark chocolate layers coated in a decadent velvet frosting.</p>
-          <div class="card-footer">
-            <span class="card-price">Rs. 2,100</span>
-            <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="2" data-name="Midnight Fudge Cake" data-price="2100">Add to Bag</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 3 -->
-      <div class="menu-card">
-        <div class="card-image-wrapper">
-          <img src="logo.png" alt="Lotus Biscoff Cookies" class="card-image">
-          <span class="card-sticker">New!</span>
-        </div>
-        <div class="card-content">
-          <h3 class="card-title">Biscoff Dream Cookies</h3>
-          <p class="card-description">Warm, chewy brown-butter cookies packed with Lotus cookie butter chunks.</p>
-          <div class="card-footer">
-            <span class="card-price">Rs. 450</span>
-            <button class="btn btn-primary btn-sm add-to-cart-btn" data-id="3" data-name="Biscoff Dream Cookies" data-price="450">Add to Bag</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 
     <!-- ===== Story ===== -->
     <section class="story" id="story" aria-label="Why Butttercloud cakes are made the way they are">
@@ -602,7 +531,7 @@
         </div>
       </div>
 
-      <form class="order-form" id="order-form" action="https://formspree.io/f/xvkokaga" method="POST" novalidate>
+      <form class="order-form" id="order-form" action="https://formspree.io/f/xvkokaga" method="POST">
         <input type="hidden" name="_subject" value="New Butttercloud order!">
         <input type="hidden" name="cart_items" id="cart-items-field">
 
@@ -642,14 +571,10 @@
           <textarea id="of-message" name="message" rows="3" placeholder="Special instructions, occasion, message on the cake, etc."></textarea>
         </div>
 
-        <div class="form-row">
-          <label for="of-photo">Reference photo <span class="form-optional">(optional)</span></label>
-          <input type="file" id="of-photo" name="reference_photo" accept="image/*">
-          <span class="form-hint">This won't attach anywhere automatically — please also send it in the WhatsApp chat after you order.</span>
-        </div>
-
-        <button type="submit" class="btn-primary order-submit">Send Order</button>
+        <button type="submit" class="btn-primary order-submit" disabled>Place Order</button>
+        <noscript><p>Please enable JavaScript to place an order, or contact us on WhatsApp.</p></noscript>
         <p class="order-status" id="order-status" role="status"></p>
+        <a id="order-whatsapp" class="btn-primary" target="_blank" rel="noopener noreferrer" hidden>Open order in WhatsApp</a>
 
       </form>
     </section>
@@ -660,7 +585,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <img src="logo.png" alt="Butter Cloud logo" class="footer-logo">
-        <p class="footer-tagline">Homemade. Handmade. Worth the wait.</p>
+        <p class="footer-tagline">Homemade. Handmade. Worth the taste.</p>
       </div>
 
       <div class="footer-col">

@@ -422,6 +422,7 @@ function renderCartLines(container, { showRemove }) {
 
 function renderCart() {
   const fabCount = document.getElementById('cart-fab-count');
+  document.body.classList.toggle('has-cart', cart.length > 0);
   const totalCount = cart.reduce((sum, l) => sum + l.qty, 0);
   fabCount.textContent = totalCount;
   fabCount.hidden = totalCount === 0;
@@ -557,7 +558,6 @@ if (orderForm) {
   function buildWhatsAppMessage(form) {
     const get = (name) => (form.elements[name] ? form.elements[name].value : '').trim();
     const fulfillment = form.querySelector('input[name="fulfillment"]:checked');
-    const hasPhoto = form.elements['reference_photo'] && form.elements['reference_photo'].files.length > 0;
 
     const lines = [
       "Hi! I'd like to place an order with Butttercloud 🍰",
@@ -577,81 +577,87 @@ if (orderForm) {
     if (message) {
       lines.push(`Notes: ${message}`);
     }
-    if (hasPhoto) {
-      lines.push("(I'll send the reference photo in this chat separately)");
-    }
 
     return lines.join('\n');
   }
 
-  orderForm.addEventListener('submit', function (e) {
-    e.preventDefault();
+  const submitButton = orderForm.querySelector('[type="submit"]');
+  const whatsappLink = document.getElementById('order-whatsapp');
+  let submitting = false;
 
+  orderForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (submitting) return;
     const statusEl = document.getElementById('order-status');
     statusEl.textContent = '';
     statusEl.classList.remove('is-error');
+    whatsappLink.hidden = true;
+
+    if (cart.length === 0) {
+      statusEl.textContent = 'Your cart is empty — add something from the menu first!';
+      statusEl.classList.add('is-error');
+      return;
+    }
+    if (!orderForm.reportValidity()) return;
+
+    const message = buildWhatsAppMessage(orderForm);
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    const items = cart.map(line =>
+      `${line.name}${line.size ? ` (${line.size})` : ''} — Qty ${line.qty} × ${formatPrice(line.unitPrice)} = ${formatPrice(cartLineTotal(line))}`
+    ).join('\n');
+    document.getElementById('cart-items-field').value = items;
+    const formData = new FormData(orderForm);
+    formData.set('total', formatPrice(cartTotal()));
+    formData.set('order_summary', message);
+    if (formData.get('fulfillment') !== 'Delivery') formData.set('address', '');
+
+    submitting = true;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending…';
+    statusEl.textContent = 'Sending your order…';
+    // Reserve a tab during the tap; navigate only after the order is saved.
+    let whatsappWindow = null;
+    try {
+      whatsappWindow = window.open('about:blank', '_blank');
+      if (whatsappWindow) whatsappWindow.opener = null;
+    } catch (_) { /* The visible WhatsApp link is the popup-blocker fallback. */ }
 
     try {
-      if (cart.length === 0) {
-        statusEl.textContent = 'Your cart is empty — add something from the menu first!';
-        statusEl.classList.add('is-error');
-        return;
-      }
-
-      if (!orderForm.reportValidity()) {
-        return;
-      }
-
-      const whatsappReady = WHATSAPP_NUMBER && !WHATSAPP_NUMBER.includes('XXXX');
-      const message = buildWhatsAppMessage(orderForm);
-
-      document.getElementById('cart-items-field').value = JSON.stringify(cart);
-
-      if (whatsappReady) {
-        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-        // Open WhatsApp immediately (must happen synchronously on the click
-        // to avoid popup blockers)
-        window.open(waUrl, '_blank');
-        statusEl.textContent = 'Opening WhatsApp — send the message to confirm your order!';
-      } else {
-        // WhatsApp number not set up yet — form submission still works,
-        // just skips the WhatsApp step until WHATSAPP_NUMBER is filled in above.
-        statusEl.textContent = "Order sent! We'll reach out to confirm shortly.";
-      }
-
-      const formData = new FormData(orderForm);
-      // Formspree's free plan doesn't support file uploads — submissions
-      // with a file attached get rejected outright. Strip it here so the
-      // rest of the order still goes through; the customer is asked (via
-      // the WhatsApp message + form hint) to send the photo in the chat.
-      formData.delete('reference_photo');
-      fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         body: formData,
         headers: { Accept: 'application/json' }
-      })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Formspree responded with an error');
-          }
-        })
-        .catch(err => {
-          console.error('Order form submission failed:', err);
-          statusEl.textContent = "Hmm, something went wrong sending that — please try again or message us directly.";
-          statusEl.classList.add('is-error');
-        });
+      });
+      if (!response.ok) throw new Error('Order submission failed');
 
       orderForm.reset();
+      document.getElementById('cart-items-field').value = '';
       updateAddressVisibility();
       cart = [];
       saveCart();
       renderCart();
+      closeCart();
+      whatsappLink.href = waUrl;
+      whatsappLink.hidden = false;
+      statusEl.textContent = 'Order received! Send the pre-filled WhatsApp message to confirm it. If WhatsApp did not open, use the button below.';
+      if (whatsappWindow && !whatsappWindow.closed) {
+        try { whatsappWindow.location.replace(waUrl); } catch (_) { /* Use the link. */ }
+      }
     } catch (err) {
-      console.error('Unexpected error submitting order form:', err);
-      statusEl.textContent = "Something went wrong — please try again or message us directly.";
+      if (whatsappWindow && !whatsappWindow.closed) whatsappWindow.close();
+      statusEl.textContent = 'We could not confirm your order was received. Your cart and details are still here. Please retry or send your order through WhatsApp below.';
       statusEl.classList.add('is-error');
+      whatsappLink.href = waUrl;
+      whatsappLink.hidden = false;
+    } finally {
+      submitting = false;
+      submitButton.disabled = false;
+      submitButton.textContent = 'Place Order';
     }
   });
+  // Enable checkout only after its submission handler is installed.
+  submitButton.disabled = false;
+
 }
 
 // ============================================
@@ -969,8 +975,10 @@ if (heroSection && heroStage && heroCupcakeTilt) {
   const stickyTotal = document.getElementById("sticky-cart-total");
   const stickyTrigger = document.getElementById("sticky-cart-trigger");
 
+  if (!stickyBar) return;
+
   // Hook into the page's renderCart function to keep things in sync!
-  const originalRenderCart = window.renderCart || typeof renderCart === 'function' ? renderCart : null;
+  const originalRenderCart = typeof renderCart === 'function' ? renderCart : null;
 
   function updateMobileStickyBar() {
     if (typeof cart !== 'undefined' && cart.length > 0) {
