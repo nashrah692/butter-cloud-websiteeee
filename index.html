@@ -1,637 +1,272 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Butter Cloud â€” Homemade. Handmade. Worth the taste.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Pacifico&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-  <!-- Ambient decorative clouds â€” purely visual, sit behind all content -->
-  <div class="ambient-clouds" aria-hidden="true">
-    <div class="ambient-cloud ambient-cloud--1"></div>
-    <div class="ambient-cloud ambient-cloud--2"></div>
-    <div class="ambient-cloud ambient-cloud--3"></div>
-  </div>
-
-
-  <!-- ===== Sticky Header ===== -->
-  <header class="site-header" id="site-header">
-    <a href="#top" class="brand-mark">
-      <img src="logo.png" alt="Butter Cloud logo" class="logo-mark">
-    </a>
-
-    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-      <a href="#story">Story</a>
-      <a href="#menu">Menu</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#pre-orders">Pre-Orders</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#faq">FAQ</a>
-      <a href="#place-order" class="nav-cta">Order Now</a>
-    </nav>
-
-    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
-
-  <main id="top">
-    <!-- ===== Hero ===== -->
-    <section id="hero" class="hero-section">
-      <div class="hero-container">
-        <div class="hero-content">
-          <h1 class="hero-title">butttercloud</h1>
-          <p class="hero-description">Homemade. Handmade. Worth the taste.</p>
-          <div class="hero-actions">
-            <a href="#menu" class="btn btn-primary">View Menu</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Story ===== -->
-    <section class="story" id="story" aria-label="Why Butttercloud cakes are made the way they are">
-      <h2 class="story-heading">the tea, spilled</h2>
-
-      <div class="story-thread" aria-hidden="true"></div>
-
-      <div class="story-track">
-
-        <article class="beat" data-beat="1">
-          <div class="beat-figure">
-            <img src="mascot/beat1.webp" alt="Mascot waving hello" loading="lazy">
-          </div>
-          <div class="beat-bubble">
-            <p>hii <span aria-hidden="true">ğŸ‘‹</span> here's the tea on why cakes aren't cheap. quick read, promise.</p>
-          </div>
-        </article>
-
-        <article class="beat" data-beat="2">
-          <div class="beat-figure">
-            <img src="mascot/beat2.webp" alt="Mascot holding up a freshly baked cake" loading="lazy">
-          </div>
-          <div class="beat-bubble">
-            <p>nothing's pre-made. your order gets baked when you order it â€” not sitting around for days pretending it's "fresh."</p>
-          </div>
-        </article>
-
-        <article class="beat" data-beat="3">
-          <div class="beat-figure">
-            <img src="mascot/beat3.webp" alt="Mascot surrounded by small piles of ingredients, looking exasperated" loading="lazy">
-          </div>
-          <div class="beat-bubble">
-            <p>and "just buy in bulk" isn't a thing when you're one person making one order at a time. bulk ingredients would expire before i even touch half of them.</p>
-          </div>
-        </article>
-
-        <article class="beat" data-beat="4">
-          <div class="beat-figure">
-            <img src="mascot/beat4.webp" alt="Mascot checking the clock next to a stand mixer, looking tired" loading="lazy">
-          </div>
-          <div class="beat-bubble">
-            <p>the oven and mixer don't run on vibes. i'm working around actual electricity timings â€” baking is not a "mix and done" situation.</p>
-          </div>
-        </article>
-
-        <article class="beat" data-beat="5">
-          <div class="beat-figure">
-            <img src="mascot/beat5.webp" alt="Mascot stressed and sweating while holding a cake" loading="lazy">
-          </div>
-          <div class="beat-bubble">
-            <p>still a student at COTHM, first year almost done <span aria-hidden="true">ğŸ“</span> â€” so yes, i stress over every cake. if it's not right, i redo it. your order gets my full attention, not leftovers.</p>
-          </div>
-        </article>
-
-        <article class="beat" data-beat="6">
-          <div class="beat-figure">
-            <img src="mascot/beat6.webp" alt="Mascot confidently giving a thumbs up while presenting a finished cake" loading="lazy">
-          </div>
-          <div class="beat-bubble">
-            <p>that's the tea, fully spilled. now you know why i need a little advance notice â€” let's talk pre-orders <span aria-hidden="true">ğŸ‘‡</span></p>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ===== Menu ===== -->
-    <section class="menu" id="menu" aria-label="Menu">
-      <h2 class="section-heading section-heading--script">the menu</h2>
-
-      <!-- Cakes -->
-      <div class="menu-category">
-        <h3 class="menu-category-title">Cakes</h3>
-        <div class="menu-items" id="menu-cakes"></div>
-      </div>
-
-      <!-- Brownies -->
-      <div class="menu-category">
-        <h3 class="menu-category-title">Brownies</h3>
-        <div class="menu-items" id="menu-brownies"></div>
-      </div>
-
-      <!-- Cookies -->
-      <div class="menu-category">
-        <h3 class="menu-category-title">Cookies</h3>
-        <div class="menu-items" id="menu-cookies"></div>
-      </div>
-
-      <!-- Butter Biscuits -->
-      <div class="menu-category">
-        <h3 class="menu-category-title">Butter Biscuits</h3>
-        <div class="menu-items" id="menu-biscuits"></div>
-      </div>
-    </section>
-
-    <!-- ===== Floating Cart ===== -->
-    <button type="button" class="cart-fab" id="cart-fab" aria-label="View cart">
-      <span class="cart-fab-icon" aria-hidden="true">ğŸ›’</span>
-      <span class="cart-fab-count" id="cart-fab-count" hidden>0</span>
-    </button>
-
-    <div class="cart-panel" id="cart-panel" hidden>
-      <div class="cart-panel-header">
-        <h3>Your Cart</h3>
-        <button type="button" class="cart-close-btn" id="cart-close-btn" aria-label="Close cart">&times;</button>
-      </div>
-      <div class="cart-panel-body" id="cart-panel-body">
-        <p class="cart-empty">Nothing in here yet â€” add something from the menu!</p>
-      </div>
-      <div class="cart-panel-footer">
-        <div class="cart-total-row">
-          <span>Total</span>
-          <span id="cart-total">Rs. 0</span>
-        </div>
-        <a href="#place-order" class="btn-primary cart-checkout-btn" id="cart-checkout-btn">Checkout</a>
-      </div>
-    </div>
-    <div class="cart-overlay" id="cart-overlay" hidden></div>
-
-    <!-- ===== Mascot Companion ===== -->
-    <button type="button" class="mascot-companion" id="mascot-companion" aria-label="Say hi to the Butttercloud mascot">
-      <img src="mascot/companion-idle.webp" alt="" id="mascot-companion-img">
-    </button>
-
-    <!-- ===== Gallery ===== -->
-    <section class="gallery" id="gallery" aria-label="Custom cake gallery">
-      <h2 class="section-heading section-heading--script">cakes we've made</h2>
-      <p class="gallery-intro">A few of the custom cakes that have come out of this kitchen â€” tap any photo to see it larger.</p>
-
-      <div class="gallery-grid" id="gallery-grid">
-        <div class="gallery-item">
-          <img src="gallery/custom-cake-1.webp" alt="Custom Eid cake with Arabic calligraphy and gold leaf detail" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="gallery/custom-cake-2.webp" alt="Custom pink birthday cake with a personalized message" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="gallery/custom-cake-3.webp" alt="Custom graduation cake with a crumb-coated edge" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="gallery/custom-cake-4.webp" alt="Custom caramel cookie-edge cake with a personalized message" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Pre-Orders ===== -->
-    <section class="pre-orders" id="pre-orders" aria-label="Pre-order policy and process">
-
-      <h2 class="section-heading section-heading--script">the pre-order lowdown</h2>
-
-      <div class="policy-cards">
-        <div class="policy-card">
-          <div class="policy-card-figure">
-            <img src="mascot/pose1.webp" alt="Mascot marking a date on her calendar" loading="lazy">
-          </div>
-          <div class="policy-card-body">
-            <span class="policy-tag">Standard</span>
-            <h3>1 day's notice</h3>
-            <p>This is the sweet spot â€” enough time for the sponge, the chill, the soak, and the finish, without anything getting rushed.</p>
-          </div>
-        </div>
-
-        <div class="policy-card">
-          <div class="policy-card-figure">
-            <img src="mascot/pose2.webp" alt="Mascot looking at her phone, thinking it over" loading="lazy">
-          </div>
-          <div class="policy-card-body">
-            <span class="policy-tag policy-tag--accent">Need it sooner?</span>
-            <h3>Urgent orders</h3>
-            <p>Totally possible sometimes â€” just need at least 6 hours' heads up. Message me and let's see what we can do.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== The science / process timeline ===== -->
-      <div class="process">
-        <h3 class="section-heading section-heading--script process-heading">so here's the math</h3>
-        <p class="process-intro">a cake isn't one step. it's a chain of steps that each need their own time â€” skip one and the whole cake suffers. here's what actually happens between "order placed" and "cake ready":</p>
-
-        <ol class="process-steps reveal-up">
-          <li class="process-step">
-            <span class="process-num">1</span>
-            <div class="process-step-body">
-              <div class="process-step-head">
-                <h4>Mixing the batter</h4>
-                <span class="process-duration">25 min</span>
-              </div>
-              <p>Sponge batter made from scratch, every single time.</p>
-            </div>
-          </li>
-
-          <li class="process-step">
-            <span class="process-num">2</span>
-            <div class="process-step-body">
-              <div class="process-step-head">
-                <h4>Baking the sponge</h4>
-                <span class="process-duration">35â€“40 min</span>
-              </div>
-              <p>Low and slow, so it actually cooks through instead of just looking done.</p>
-            </div>
-          </li>
-
-          <li class="process-step">
-            <span class="process-num">3</span>
-            <div class="process-step-body">
-              <div class="process-step-head">
-                <h4>Cooling down</h4>
-                <span class="process-duration">~60 min</span>
-              </div>
-              <p>A warm sponge falls apart the moment you touch it â€” it needs time to set.</p>
-            </div>
-          </li>
-
-          <li class="process-step">
-            <span class="process-num">4</span>
-            <div class="process-step-body">
-              <div class="process-step-head">
-                <h4>Locking in the moisture</h4>
-                <span class="process-duration">a few hrsâ€“overnight</span>
-              </div>
-              <p>Cling wrapped and chilled so the sponge stays soft, not dry, by the time it's your cake.</p>
-            </div>
-          </li>
-
-          <li class="process-step">
-            <span class="process-num">5</span>
-            <div class="process-step-body">
-              <div class="process-step-head">
-                <h4>Soaking the sponge</h4>
-                <span class="process-duration">2+ hrs, or during coverage</span>
-              </div>
-              <p>Three-milk sponges need at least 2 hours soaking before assembly. Simple sponges (pineapple, fudge, etc.) get soaked the moment coverage starts â€” no separate wait.</p>
-            </div>
-          </li>
-
-          <li class="process-step">
-            <span class="process-num">6</span>
-            <div class="process-step-body">
-              <div class="process-step-head">
-                <h4>Prepping the fillings</h4>
-                <span class="process-duration">15â€“20 min</span>
-              </div>
-              <p>Whipping cream, lotus spread, chocolate spread, crushed biscuit â€” whatever your cake calls for, made fresh.</p>
-            </div>
-          </li>
-
-          <li class="process-step">
-            <span class="process-num">7</span>
-            <div class="process-step-body">
-              <div class="process-step-head">
-                <h4>Covering &amp; finishing</h4>
-                <span class="process-duration">up to 30 min</span>
-              </div>
-              <p>The actual decorating â€” piping, spreading, making it look like your cake.</p>
-            </div>
-          </li>
-        </ol>
-
-        <div class="process-total reveal-up">
-          <span class="process-total-figure">~5 hrs</span>
-          <p>of hands-on work â€” and that's before some cakes go back in the fridge to chill overnight. that's the pre-order math.</p>
-        </div>
-      </div>
-
-      <!-- ===== Closing teaser into Place Order ===== -->
-      <div class="order-teaser reveal-up">
-        <div class="order-teaser-figure">
-          <img src="mascot/pose3.webp" alt="Mascot holding out an order slip, inviting you to place an order" loading="lazy">
-        </div>
-        <div class="order-teaser-text">
-          <p>Got your dates sorted? Let's get it in the books.</p>
-          <a href="#place-order" class="btn-primary">Place Order</a>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ===== Reviews =====
-         PLACEHOLDER CONTENT: all 6 reviews below (name, item, quote) are
-         placeholders since real customer reviews aren't ready yet. Replace
-         the text inside each <p class="review-quote"> and the
-         <span class="review-name">/<span class="review-item"> lines with
-         real testimonials whenever they're in. Structure can stay as-is. -->
-    <section class="reviews" id="reviews" aria-label="Customer reviews">
-      <h2 class="section-heading section-heading--script">sweet things people said</h2>
-
-      <div class="reviews-track">
-
-        <div class="review-card">
-          <span class="review-tape" aria-hidden="true"></span>
-          <div class="review-stars" aria-label="5 out of 5 stars">â˜…â˜…â˜…â˜…â˜…</div>
-          <p class="review-quote">"Ordered a three-milk cake for my mom's birthday and it disappeared in one sitting. Worth every minute of the wait."</p>
-          <div class="review-meta">
-            <span class="review-name">Areeba K.</span>
-            <span class="review-item">Three Milk Cake</span>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <span class="review-tape" aria-hidden="true"></span>
-          <div class="review-stars" aria-label="5 out of 5 stars">â˜…â˜…â˜…â˜…â˜…</div>
-          <p class="review-quote">"The lotus biscoff cake was so soft, not overly sweet. Definitely ordering again."</p>
-          <div class="review-meta">
-            <span class="review-name">Hassan R.</span>
-            <span class="review-item">Lotus Biscoff Cake</span>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <span class="review-tape" aria-hidden="true"></span>
-          <div class="review-stars" aria-label="5 out of 5 stars">â˜…â˜…â˜…â˜…â˜…</div>
-          <p class="review-quote">"Loved that she checked in with me about the design before baking. Felt personal, not like ordering off a catalog."</p>
-          <div class="review-meta">
-            <span class="review-name">Meher S.</span>
-            <span class="review-item">Custom Birthday Cake</span>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <span class="review-tape" aria-hidden="true"></span>
-          <div class="review-stars" aria-label="5 out of 5 stars">â˜…â˜…â˜…â˜…â˜…</div>
-          <p class="review-quote">"Pre-ordered a day ahead like she asked, and it made sense once I saw everything that actually goes into one of these."</p>
-          <div class="review-meta">
-            <span class="review-name">Bilal A.</span>
-            <span class="review-item">Chocolate Fudge Cake</span>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <span class="review-tape" aria-hidden="true"></span>
-          <div class="review-stars" aria-label="5 out of 5 stars">â˜…â˜…â˜…â˜…â˜…</div>
-          <p class="review-quote">"Best red velvet I've had in Multan, hands down. My family keeps asking when we're ordering again."</p>
-          <div class="review-meta">
-            <span class="review-name">Zara N.</span>
-            <span class="review-item">Red Velvet Cake</span>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <span class="review-tape" aria-hidden="true"></span>
-          <div class="review-stars" aria-label="5 out of 5 stars">â˜…â˜…â˜…â˜…â˜…</div>
-          <p class="review-quote">"Small business, big heart. You can tell she actually cares about how it turns out."</p>
-          <div class="review-meta">
-            <span class="review-name">Fatima J.</span>
-            <span class="review-item">Pineapple Cake</span>
-          </div>
-        </div>
-
-      </div>
-
-      <p class="reviews-hint">â† swipe to see more â†’</p>
-    </section>
-
-    <!-- ===== FAQ ===== -->
-    <section class="faq" id="faq" aria-label="Frequently asked questions">
-      <h2 class="section-heading section-heading--script">quick answers before you order</h2>
-
-      <div class="faq-list">
-
-        <details class="faq-item">
-          <summary>
-            <span>How far in advance do I need to order?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq-answer">
-            <p>Short version: at least 1 day. Head up to the <a href="#pre-orders">Pre-Orders</a> section for the full breakdown of why.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>
-            <span>Do you take same-day or urgent orders?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq-answer">
-            <p>Sometimes â€” but I need at least 6 hours' notice, no exceptions. That's the minimum it actually takes to bake, cool, and finish a cake properly. Message me first before assuming it's possible.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>
-            <span>How do I actually place an order?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq-answer">
-            <p>Through WhatsApp, the order form on this site, or Instagram DM â€” whichever's easiest for you.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>
-            <span>What sizes do your cakes come in?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq-answer">
-            <p>Bento, 1 pound, 2 pound, and 3.5 pound. How many people that feeds really depends on how much your crowd eats, so go with your gut on portion size.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>
-            <span>Can I customize the flavor or design?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq-answer">
-            <p>Right now I'm focused on perfecting my craft, so simple customizations â€” flavor swaps, basic design tweaks â€” I'm your person. For fully elaborate, fancy custom designs, you'll want to look elsewhere for now.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>
-            <span>Do you do eggless cakes or cater to dietary restrictions?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq-answer">
-            <p>Not at the moment â€” but that might change down the line.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>
-            <span>What payment methods do you accept?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq-answer">
-            <p>Meezan Bank transfer, JazzCash, EasyPaisa, SadaPay, or NayaPay.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>
-            <span>Do you deliver, or is it pickup only?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq-answer">
-            <p>Both â€” delivery and pickup are available, but only within Multan for now.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>
-            <span>Can I cancel or change my order after placing it?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq-answer">
-            <p>You've got a 1-hour window after placing your order to make changes. After that, it's locked in â€” so it's worth double checking everything within that hour.</p>
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>
-            <span>Why should I trust a home bakery over a proper cake shop?</span>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </summary>
-          <div class="faq-answer">
-            <p>Anyone who's tried these cakes doesn't just order once â€” they come back. Every recipe here has been tested, redone, and perfected by hand until it's actually right, not just good enough. That's not a sales pitch, that's just what repeat customers look like.</p>
-          </div>
-        </details>
-
-      </div>
-    </section>
-
-    <!-- ===== Place Order ===== -->
-    <section class="place-order" id="place-order" aria-label="Place your order">
-      <h2 class="section-heading section-heading--script">let's get you a cake</h2>
-      <p class="place-order-intro">Review your cart, fill in your details, and hit send â€” it'll open a pre-filled WhatsApp message for you to confirm. Same info gets saved on our end too.</p>
-
-      <div class="checkout-summary" id="checkout-summary">
-        <h3 class="checkout-summary-title">Your Order</h3>
-        <div id="checkout-summary-body">
-          <p class="cart-empty">Your cart is empty â€” <a href="#menu">head up to the menu</a> to add something first.</p>
-        </div>
-        <div class="checkout-summary-total" id="checkout-summary-total" hidden>
-          <span>Total</span>
-          <span id="checkout-total-amount">Rs. 0</span>
-        </div>
-      </div>
-
-      <form class="order-form" id="order-form" action="https://formspree.io/f/xvkokaga" method="POST">
-        <input type="hidden" name="_subject" value="New Butttercloud order!">
-        <input type="hidden" name="cart_items" id="cart-items-field">
-
-        <div class="form-row">
-          <label for="of-name">Your name</label>
-          <input type="text" id="of-name" name="name" required autocomplete="name">
-        </div>
-
-        <div class="form-row">
-          <label for="of-phone">Phone number</label>
-          <input type="tel" id="of-phone" name="phone" required autocomplete="tel" placeholder="03XX XXXXXXX">
-        </div>
-
-        <div class="form-row">
-          <label for="of-date">Date you need it by</label>
-          <input type="date" id="of-date" name="date_needed" required>
-        </div>
-
-        <div class="form-row">
-          <span class="form-label">Pickup or delivery?</span>
-          <div class="chip-group" role="radiogroup" aria-label="Pickup or delivery">
-            <input type="radio" id="fulfil-pickup" name="fulfillment" value="Pickup" required checked>
-            <label for="fulfil-pickup" class="chip">Pickup</label>
-
-            <input type="radio" id="fulfil-delivery" name="fulfillment" value="Delivery">
-            <label for="fulfil-delivery" class="chip">Delivery (Multan only)</label>
-          </div>
-        </div>
-
-        <div class="form-row" id="address-row" hidden>
-          <label for="of-address">Delivery address</label>
-          <textarea id="of-address" name="address" rows="2" placeholder="Full address in Multan"></textarea>
-        </div>
-
-        <div class="form-row">
-          <label for="of-message">Anything else? <span class="form-optional">(optional)</span></label>
-          <textarea id="of-message" name="message" rows="3" placeholder="Special instructions, occasion, message on the cake, etc."></textarea>
-        </div>
-
-        <button type="submit" class="btn-primary order-submit" disabled>Place Order</button>
-        <noscript><p>Please enable JavaScript to place an order, or contact us on WhatsApp.</p></noscript>
-        <p class="order-status" id="order-status" role="status"></p>
-        <a id="order-whatsapp" class="btn-primary" target="_blank" rel="noopener noreferrer" hidden>Open order in WhatsApp</a>
-
-      </form>
-    </section>
-  </main>
-
-  <!-- ===== Footer ===== -->
-  <footer class="site-footer">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img src="logo.png" alt="Butter Cloud logo" class="footer-logo">
-        <p class="footer-tagline">Homemade. Handmade. Worth the taste.</p>
-      </div>
-
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <a href="#story">Story</a>
-        <a href="#menu">Menu</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#pre-orders">Pre-Orders</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#faq">FAQ</a>
-        <a href="#place-order">Order Now</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Get in Touch</h4>
-        <!-- TODO: WhatsApp link uses the same WHATSAPP_NUMBER placeholder as
-             the order form in script.js â€” updates automatically once that's set -->
-        <a href="#" id="footer-whatsapp-link" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="https://www.instagram.com/butttercloud" target="_blank" rel="noopener">Instagram</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Location</h4>
-        <p>Pickup &amp; delivery available in Multan, Pakistan.</p>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; <span id="footer-year"></span> Butttercloud. All rights reserved.</p>
-    </div>
-  </footer>
-
-<!-- BOTTOM STICKY MOBILE CART BAR -->
-<div id="mobile-sticky-cart" class="sticky-cart-bar" style="display: none;">
-  <div class="sticky-cart-content">
-    <div class="sticky-cart-left">
-      <span class="sticky-cart-badge" id="sticky-cart-count">0</span>
-      <span class="sticky-cart-text">Items in Bag</span>
-    </div>
-    <div class="sticky-cart-right">
-      <span class="sticky-cart-total" id="sticky-cart-total">Rs. 0</span>
-      <button class="sticky-cart-btn" id="sticky-cart-trigger">View Cart â”</button>
-    </div>
-  </div>
-</div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+<!DOCTYPE html> <!-- Use modern HTML document rules. -->
+<html lang="en"> <!-- Start the English-language webpage. -->
+<head> <!-- Start page settings and stylesheet links. -->
+  <meta charset="UTF-8"> <!-- Set page encoding or mobile viewport behavior. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Set page encoding or mobile viewport behavior. -->
+  <title>butttercloud â€” Homemade. Handmade. Worth the wait.</title> <!-- Name the browser tab. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Load the linked fonts or stylesheet. -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Load the linked fonts or stylesheet. -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Pacifico&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet"> <!-- Load the linked fonts or stylesheet. -->
+  <link rel="stylesheet" href="styles.css?v=customer-reviews-api-2"> <!-- Load the linked fonts or stylesheet. -->
+</head> <!-- Close the head container. -->
+<body> <!-- Start the visible webpage. -->
+  <div id="smooth-wrapper"> <!-- Group these elements for layout or behavior for smooth wrapper. -->
+    <div id="smooth-content"> <!-- Group these elements for layout or behavior for smooth content. -->
+      <!-- Ambient decorative clouds â€” purely visual, sit behind all content -->
+      <div class="ambient-clouds" aria-hidden="true"> <!-- Group these elements for layout or behavior for ambient clouds. -->
+        <div class="ambient-cloud ambient-cloud--1"></div> <!-- Group these elements for layout or behavior for ambient cloud ambient cloud  1. -->
+        <div class="ambient-cloud ambient-cloud--2"></div> <!-- Group these elements for layout or behavior for ambient cloud ambient cloud  2. -->
+        <div class="ambient-cloud ambient-cloud--3"></div> <!-- Group these elements for layout or behavior for ambient cloud ambient cloud  3. -->
+      </div> <!-- Close the div container. -->
+
+
+      <!-- ===== Sticky Header ===== -->
+      <header class="site-header" id="site-header"> <!-- Start the top navigation area. -->
+        <a href="#top" class="brand-mark"> <!-- Provide this navigation or contact link. -->
+          <img src="logo.png" alt="butttercloud logo" class="logo-mark"> <!-- Display this image with its accessible description. -->
+        </a> <!-- Close the a container. -->
+
+        <nav class="site-nav" id="site-nav" aria-label="Main navigation"> <!-- Group the main navigation links. -->
+          <a href="#story">Story</a> <!-- Provide this navigation or contact link. -->
+          <a href="#menu">Menu</a> <!-- Provide this navigation or contact link. -->
+          <a href="#gallery">Gallery</a> <!-- Provide this navigation or contact link. -->
+          <a href="#pre-orders">Pre-Orders</a> <!-- Provide this navigation or contact link. -->
+          <a href="#reviews">Reviews</a> <!-- Provide this navigation or contact link. -->
+          <a href="#faq">FAQ</a> <!-- Provide this navigation or contact link. -->
+          <a href="#place-order" class="nav-cta">Order Now</a> <!-- Provide this navigation or contact link. -->
+        </nav> <!-- Close the nav container. -->
+
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"> <!-- Provide a clickable or keyboard-accessible button for nav toggle. -->
+          <span></span><span></span><span></span> <!-- Display this short label or decorative element. -->
+        </button> <!-- Close the button container. -->
+      </header> <!-- Close the header container. -->
+
+      <!-- ===== Floating Cart ===== -->
+      <button type="button" class="cart-fab" id="cart-fab" aria-label="View cart"> <!-- Provide a clickable or keyboard-accessible button for cart fab. -->
+        <span class="cart-fab-icon" aria-hidden="true">ğŸ›’</span> <!-- Display this short label or decorative element for cart fab icon. -->
+        <span class="cart-fab-count" id="cart-fab-count" hidden>0</span> <!-- Display this short label or decorative element for cart fab count. -->
+      </button> <!-- Close the button container. -->
+
+      <div class="cart-panel" id="cart-panel" data-lenis-prevent hidden> <!-- Group these elements for layout or behavior for cart panel. -->
+        <div class="cart-panel-header"> <!-- Group these elements for layout or behavior for cart panel header. -->
+          <h3>your cart</h3> <!-- Display this subsection heading. -->
+          <button type="button" class="cart-close-btn" id="cart-close-btn" aria-label="Close cart">&times;</button> <!-- Provide a clickable or keyboard-accessible button for cart close btn. -->
+        </div> <!-- Close the div container. -->
+        <div class="cart-panel-body" id="cart-panel-body"> <!-- Group these elements for layout or behavior for cart panel body. -->
+          <p class="cart-empty">Nothing here yet â€” pick something sweet from the menu.</p> <!-- Display this message or description for cart empty. -->
+        </div> <!-- Close the div container. -->
+        <div class="cart-panel-footer"> <!-- Group these elements for layout or behavior for cart panel footer. -->
+          <div class="cart-total-row"> <!-- Group these elements for layout or behavior for cart total row. -->
+            <span>Total</span> <!-- Display this short label or decorative element. -->
+            <span id="cart-total">Rs. 0</span> <!-- Display this short label or decorative element for cart total. -->
+          </div> <!-- Close the div container. -->
+          <a href="#place-order" class="btn-primary cart-checkout-btn" id="cart-checkout-btn">Checkout</a> <!-- Provide this navigation or contact link. -->
+        </div> <!-- Close the div container. -->
+      </div> <!-- Close the div container. -->
+      <div class="cart-overlay" id="cart-overlay" hidden></div> <!-- Group these elements for layout or behavior for cart overlay. -->
+
+      <!-- ===== Mascot Companion ===== -->
+      <button type="button" class="mascot-companion" id="mascot-companion" aria-label="Say hi to the butttercloud mascot"> <!-- Provide a clickable or keyboard-accessible button for mascot companion. -->
+        <img src="mascot/companion-idle.webp" alt="" id="mascot-companion-img"> <!-- Display this image with its accessible description. -->
+      </button> <!-- Close the button container. -->
+
+      <!-- ===== Custom Cursor ===== -->
+      <div class="custom-cursor" aria-hidden="true"> <!-- Group these elements for layout or behavior for custom cursor. -->
+        <svg class="cursor-cloud" viewBox="0 0 32 24" aria-hidden="true" focusable="false"> <!-- Draw the small blue cloud cursor. -->
+          <path d="M8 20C4.4 20 2 17.6 2 14.5C2 11.7 4 9.5 6.7 9.1C7.2 5.6 9.9 3 13.3 3C16.3 3 18.9 4.9 19.8 7.5C20.5 7.2 21.2 7 22 7C24.8 7 27 9.1 27.2 11.8C29 12.3 30 13.7 30 15.7C30 18.2 28 20 25.3 20Z"/> <!-- Define the outline of the cloud shape. -->
+        </svg> <!-- Close the svg container. -->
+      </div> <!-- Close the div container. -->
+
+      <main id="top"> <!-- Group the main page sections. -->
+        <!-- ===== Hero ===== -->
+        <section id="hero" class="hero-section"> <!-- Group this section of the page for hero. -->
+          <div class="hero-bubbles" aria-hidden="true"> <!-- Group these decorative bubbles for layout or behavior for hero bubbles. -->
+            <span class="bubble bubble--sm bubble--primary" style="top: 12%; left: 8%;"></span> <!-- Place one small decorative bubble. -->
+            <span class="bubble bubble--md bubble--accent" style="top: 68%; left: 14%;"></span> <!-- Place one medium decorative bubble. -->
+            <span class="bubble bubble--lg bubble--primary" style="top: 22%; left: 82%;"></span> <!-- Place one large decorative bubble. -->
+            <span class="bubble bubble--sm bubble--accent" style="top: 78%; left: 88%;"></span> <!-- Place one small decorative bubble. -->
+            <span class="bubble bubble--md bubble--deep" style="top: 6%; left: 46%;"></span> <!-- Place one medium decorative bubble. -->
+            <span class="bubble bubble--sm bubble--primary" style="top: 88%; left: 52%;"></span> <!-- Place one small decorative bubble. -->
+            <span class="bubble bubble--lg bubble--accent" style="top: 46%; left: 4%;"></span> <!-- Place one large decorative bubble. -->
+            <span class="bubble bubble--md bubble--accent" style="top: 38%; left: 94%;"></span> <!-- Place one medium decorative bubble. -->
+          </div> <!-- Close the div container. -->
+          <div class="hero-container"> <!-- Group these elements for layout or behavior for hero container. -->
+            <div class="hero-content"> <!-- Group these elements for layout or behavior for hero content. -->
+              <h1 class="hero-title">butttercloud</h1> <!-- Display the main brand heading. -->
+              <p class="hero-description">Homemade. Handmade. Worth the wait.</p> <!-- Display this message or description for hero description. -->
+              <div class="hero-actions"> <!-- Group these elements for layout or behavior for hero actions. -->
+                <a href="#menu" class="btn btn-primary">View Menu</a> <!-- Provide this navigation or contact link. -->
+              </div> <!-- Close the div container. -->
+            </div> <!-- Close the div container. -->
+          </div> <!-- Close the div container. -->
+        </section> <!-- Close the section container. -->
+
+        <!-- ===== Story ===== -->
+        <div class="story-runway"> <!-- Reserve the vertical distance needed to hold the Story stage. -->
+          <section class="story" id="story" aria-label="Why butttercloud cakes are made the way they are"> <!-- Group this section of the page for story. -->
+            <h2 class="story-heading">the tea, spilled</h2> <!-- Display this section heading for story heading. -->
+
+            <div class="story-thread" aria-hidden="true"></div> <!-- Group these elements for layout or behavior for story thread. -->
+
+            <div class="story-track"> <!-- Group these elements for layout or behavior for story track. -->
+
+              <article class="beat" data-beat="1"> <!-- Group one story card for beat. -->
+                <div class="beat-figure"> <!-- Group these elements for layout or behavior for beat figure. -->
+                  <img src="mascot/beat1.webp" alt="Mascot waving hello" loading="lazy"> <!-- Display this image with its accessible description. -->
+                </div> <!-- Close the div container. -->
+                <div class="beat-bubble"> <!-- Group these elements for layout or behavior for beat bubble. -->
+                  <p>hii <span aria-hidden="true">ğŸ‘‹</span> here's the tea on why cakes aren't cheap. quick read, promise.</p> <!-- Display this message or description. -->
+                </div> <!-- Close the div container. -->
+              </article> <!-- Close the article container. -->
+
+              <article class="beat" data-beat="2"> <!-- Group one story card for beat. -->
+                <div class="beat-figure"> <!-- Group these elements for layout or behavior for beat figure. -->
+                  <img src="mascot/beat2.webp" alt="Mascot holding up a freshly baked cake" loading="lazy"> <!-- Display this image with its accessible description. -->
+                </div> <!-- Close the div container. -->
+                <div class="beat-bubble"> <!-- Group these elements for layout or behavior for beat bubble. -->
+                  <p>nothing's pre-made. your order gets baked when you order it â€” not sitting around for days pretending it's "fresh."</p> <!-- Display this message or description. -->
+                </div> <!-- Close the div container. -->
+              </article> <!-- Close the article container. -->
+
+              <article class="beat" data-beat="3"> <!-- Group one story card for beat. -->
+                <div class="beat-figure"> <!-- Group these elements for layout or behavior for beat figure. -->
+                  <img src="mascot/beat3.webp" alt="Mascot surrounded by small piles of ingredients, looking exasperated" loading="lazy"> <!-- Display this image with its accessible description. -->
+                </div> <!-- Close the div container. -->
+                <div class="beat-bubble"> <!-- Group these elements for layout or behavior for beat bubble. -->
+                  <p>and "just buy in bulk" isn't a thing when you're one person making one order at a time. bulk ingredients would expire before i even touch half of them.</p> <!-- Display this message or description. -->
+                </div> <!-- Close the div container. -->
+              </article> <!-- Close the article container. -->
+
+              <article class="beat" data-beat="4"> <!-- Group one story card for beat. -->
+                <div class="beat-figure"> <!-- Group these elements for layout or behavior for beat figure. -->
+                  <img src="mascot/beat4.webp" alt="Mascot checking the clock next to a stand mixer, looking tired" loading="lazy"> <!-- Display this image with its accessible description. -->
+                </div> <!-- Close the div container. -->
+                <div class="beat-bubble"> <!-- Group these elements for layout or behavior for beat bubble. -->
+                  <p>the oven and mixer don't run on vibes. i'm working around actual electricity timings â€” baking is not a "mix and done" situation.</p> <!-- Display this message or description. -->
+                </div> <!-- Close the div container. -->
+              </article> <!-- Close the article container. -->
+
+              <article class="beat" data-beat="5"> <!-- Group one story card for beat. -->
+                <div class="beat-figure"> <!-- Group these elements for layout or behavior for beat figure. -->
+                  <img src="mascot/beat5.webp" alt="Mascot stressed and sweating while holding a cake" loading="lazy"> <!-- Display this image with its accessible description. -->
+                </div> <!-- Close the div container. -->
+                <div class="beat-bubble"> <!-- Group these elements for layout or behavior for beat bubble. -->
+                  <p>still a student at COTHM, first year almost done <span aria-hidden="true">ğŸ“</span> â€” so yes, i stress over every cake. if it's not right, i redo it. your order gets my full attention, not leftovers.</p> <!-- Display this message or description. -->
+                </div> <!-- Close the div container. -->
+              </article> <!-- Close the article container. -->
+
+              <article class="beat" data-beat="6"> <!-- Group one story card for beat. -->
+                <div class="beat-figure"> <!-- Group these elements for layout or behavior for beat figure. -->
+                  <img src="mascot/beat6.webp" alt="Mascot confidently giving a thumbs up while presenting a finished cake" loading="lazy"> <!-- Display this image with its accessible description. -->
+                </div> <!-- Close the div container. -->
+                <div class="beat-bubble"> <!-- Group these elements for layout or behavior for beat bubble. -->
+                  <p>that's the tea, fully spilled. now you know why i need a little advance notice â€” let's talk pre-orders <span aria-hidden="true">ğŸ‘‡</span></p> <!-- Display this message or description. -->
+                </div> <!-- Close the div container. -->
+              </article> <!-- Close the article container. -->
+
+            </div> <!-- Close the div container. -->
+          </section> <!-- Close the section container. -->
+        </div> <!-- End the Story runway so the next section scrolls normally. -->
+
+        <!-- ===== Menu ===== -->
+        <section class="menu" id="menu" aria-label="Menu"> <!-- Group this section of the page for menu. -->
+          <h2 class="section-heading section-heading--script">the menu</h2> <!-- Display this section heading for section heading section heading  script. -->
+
+          <!-- Cakes -->
+          <div class="menu-category"> <!-- Group these elements for layout or behavior for menu category. -->
+            <h3 class="menu-category-title">Cakes</h3> <!-- Display this subsection heading for menu category title. -->
+            <div class="menu-items" id="menu-cakes"></div> <!-- Group these elements for layout or behavior for menu cakes. -->
+          </div> <!-- Close the div container. -->
+
+          <!-- Brownies -->
+          <div class="menu-category"> <!-- Group these elements for layout or behavior for menu category. -->
+            <h3 class="menu-category-title">Brownies</h3> <!-- Display this subsection heading for menu category title. -->
+            <div class="menu-items" id="menu-brownies"></div> <!-- Group these elements for layout or behavior for menu brownies. -->
+          </div> <!-- Close the div container. -->
+
+          <!-- Cookies -->
+          <div class="menu-category"> <!-- Group these elements for layout or behavior for menu category. -->
+            <h3 class="menu-category-title">Cookies</h3> <!-- Display this subsection heading for menu category title. -->
+            <div class="menu-items" id="menu-cookies"></div> <!-- Group these elements for layout or behavior for menu cookies. -->
+          </div> <!-- Close the div container. -->
+
+          <!-- Butter Biscuits -->
+          <div class="menu-category"> <!-- Group these elements for layout or behavior for menu category. -->
+            <h3 class="menu-category-title">Butter Biscuits</h3> <!-- Display this subsection heading for menu category title. -->
+            <div class="menu-items" id="menu-biscuits"></div> <!-- Group these elements for layout or behavior for menu biscuits. -->
+          </div> <!-- Close the div container. -->
+        </section> <!-- Close the section container. -->
+
+        <!-- ===== Gallery ===== -->
+        <section class="gallery" id="gallery" aria-label="Custom cake gallery"> <!-- Group this section of the page for gallery. -->
+          <h2 class="section-heading section-heading--script">cakes we've made</h2> <!-- Display this section heading for section heading section heading  script. -->
+          <p class="gallery-intro">A few sweet things from this kitchen â€” tap a photo for a closer look.</p> <!-- Display this message or description for gallery intro. -->
+
+          <div class="gallery-grid" id="gallery-grid"> <!-- Group these elements for layout or behavior for gallery grid. -->
+            <div class="gallery-item"> <!-- Group these elements for layout or behavior for gallery item. -->
+              <img src="gallery/custom-cake-1.webp" alt="Custom Eid cake with Arabic calligraphy and gold leaf detail" loading="lazy"> <!-- Display this image with its accessible description. -->
+            </div> <!-- Close the div container. -->
+            <div class="gallery-item"> <!-- Group these elements for layout or behavior for gallery item. -->
+              <img src="gallery/custom-cake-2.webp" alt="Custom pink birthday cake with a personalized message" loading="lazy"> <!-- Display this image with its accessible description. -->
+            </div> <!-- Close the div container. -->
+            <div class="gallery-item"> <!-- Group these elements for layout or behavior for gallery item. -->
+              <img src="gallery/custom-cake-3.webp" alt="Custom graduation cake with a crumb-coated edge" loading="lazy"> <!-- Display this image with its accessible description. -->
+            </div> <!-- Close the div container. -->
+            <div class="gallery-item"> <!-- Group these elements for layout or behavior for gallery item. -->
+              <img src="gallery/custom-cake-4.webp" alt="Custom caramel cookie-edge cake with a personalized message" loading="lazy"> <!-- Display this image with its accessible description. -->
+            </div> <!-- Close the div container. -->
+          </div> <!-- Close the div container. -->
+        </section> <!-- Close the section container. -->
+
+        <!-- ===== Pre-Orders ===== -->
+        <section class="pre-orders" id="pre-orders" aria-label="Pre-order policy and process"> <!-- Group this section of the page for pre orders. -->
+
+          <h2 class="section-heading section-heading--script">the pre-order lowdown</h2> <!-- Display this section heading for section heading section heading  script. -->
+
+          <div class="policy-cards"> <!-- Group these elements for layout or behavior for policy cards. -->
+            <div class="policy-card"> <!-- Group these elements for layout or behavior for policy card. -->
+              <div class="policy-card-figure"> <!-- Group these elements for layout or behavior for policy card figure. -->
+                <img src="mascot/pose1.webp" alt="Mascot marking a date on her calendar" loading="lazy"> <!-- Display this image with its accessible description. -->
+              </div> <!-- Close the div container. -->
+              <div class="policy-card-body"> <!-- Group these elements for layout or behavior for policy card body. -->
+                <span class="policy-tag">Standard</span> <!-- Display this short label or decorative element for policy tag. -->
+                <h3>1 day's notice</h3> <!-- Display this subsection heading. -->
+                <p>This is the sweet spot â€” enough time for the sponge, the chill, the soak, and the finish, without anything getting rushed.</p> <!-- Display this message or description. -->
+              </div> <!-- Close the div container. -->
+            </div> <!-- Close the div container. -->
+
+            <div class="policy-card"> <!-- Group these elements for layout or behavior for policy card. -->
+              <div class="policy-card-figure"> <!-- Group these elements for layout or behavior for policy card figure. -->
+                <img src="mascot/pose2.webp" alt="Mascot looking at her phone, thinking it over" loading="lazy"> <!-- Display this image with its accessible description. -->
+              </div> <!-- Close the div container. -->
+              <div class="policy-card-body"> <!-- Group these elements for layout or behavior for policy card body. -->
+                <span class="policy-tag policy-tag--accent">Need it sooner?</span> <!-- Display this short label or decorative element for policy tag policy tag  accent. -->
+                <h3>Urgent orders</h3> <!-- Display this subsection heading. -->
+                <p>Sometimes there's room for a last-minute bake â€” I need at least 6 hours' notice. Message me first and let's see what's possible.</p> <!-- Display this message or description. -->
+              </div> <!-- Close the div container. -->
+            </div> <!-- Close the div container. -->
+          </div> <!-- Close the div container. -->
+
+          <!-- ===== The science / process timeline ===== -->
+          <div class="process)> <!-- Group these elements for layout or behavior for process. -->
+            <h3 class="section-heading section-heading--script process-heading">so here's the math</h3> <!-- Display this subsection heading for section heading section heading  script process heading. -->
+            <p class="process-intro">A cake takes a few steps, and each one needs its time. Here's what happens between "order placed" and "cake ready":</p> <!-- Display this message or description for process intro. -->
+
+            <ol class="process-steps reveal-up"> <!-- Start the ordered baking-process list. -->
+              <li class="process-step"> <!-- Describe one step in the baking process. -->
+                <span class="process-num">1</span> <!-- Display this short label or decorative element for process num. -->
+                <div class="process-step-body"> <!-- Group these elements for layout or behavior for process step body. -->
+                  <div class="process-step-head"> <!-- Group these elements for layout or behavior for process step head. -->
+                    <h4>Mixing the batter</h4> <!-- Display this smaller heading. -->
+                    <span class="process-duration">25 min</span> <!-- Display this short label or decorative element for process duration. -->
+                  </div> <!-- Close the div container. -->
+                  <p>Sponge batter made from scratch, every single time.</p> <!-- Display this message or description. -->
+                </div> <!-- Close the div container. -->
+              </li> <!-- Close the li container. -->
+
+              <li class="process-step"> <!-- Describe one step in the baking process. -->
+                <span class="process-num">2</span> <!-- Display this short label or decorative element for process num. -->
+                <div class="process-step-body"> <!-- Group these elements for layout or behavior for process step body. -->
+                  <div class="process-step-head"> <!-- Group these elements for layout or behavior for process'7FWÖ†VBâÒÓà¢ÆƒCä&¶–ærF†R7öævSÂöƒCâÂÒÒF—7Æ’F†—26ÖÆÆW"†VF–ærâÒÓà¢Ç7â6Æ73Ò'&ö6W72ÖGW&F–öâ#ã3^(	3CÖ–ãÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"&ö6W72GW&F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÇäÆ÷ræB6Æ÷rÂ6ò—B7GVÆÇ’6öö·2F‡&÷Vv‚–ç7FVBöb§W7BÆöö¶–ærFöæRãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöÆ“âÂÒÒ6Æ÷6RF†RÆ’6öçF–æW"âÒÓà ¢ÆÆ’6Æ73Ò'&ö6W72×7FW#âÂÒÒFW67&–&RöæR7FW–âF†R&¶–ær&ö6W72âÒÓà¢Ç7â6Æ73Ò'&ö6W72ÖçVÒ#ã3Â÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"&ö6W72çVÒâÒÓà¢ÆF—b6Æ73Ò'&ö6W72×7FWÖ&öG’#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"&ö6W727FW&öG’âÒÓà¢ÆF—b6Æ73Ò'&ö6W72×7FWÖ†VB#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"&ö6W727FW†VBâÒÓà¢ÆƒCä6ööÆ–ærF÷vãÂöƒCâÂÒÒF—7Æ’F†—26ÖÆÆW"†VF–ærâÒÓà¢Ç7â6Æ73Ò'&ö6W72ÖGW&F–öâ#çãcÖ–ãÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"&ö6W72GW&F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢Çäv&Ò7öævRfÆÇ2'BF†RÖöÖVçB–÷RF÷V6‚—B(	B—BæVVG2F–ÖRFò6WBãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöÆ“âÂÒÒ6Æ÷6RF†RÆ’6öçF–æW"âÒÓà ¢ÆÆ’6Æ73Ò'&ö6W72×7FW#âÂÒÒFW67&–&RöæR7FW–âF†R&¶–ær&ö6W72âÒÓà¢Ç7â6Æ73Ò'&ö6W72ÖçVÒ#ãCÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"&ö6W72çVÒâÒÓà¢ÆF—b6Æ73Ò'&ö6W72×7FWÖ&öG’#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"&ö6W72×7FWÖ&öG’âÒÓà¢ÆF—b6Æ73Ò'&ö6W72×7FWÖ†VB#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"&ö6W72×7FWÖ†VBâÒÓà¢ÆƒCäÆö6¶–ær–âF†RÖö—7GW&SÂöƒCâÂÒÒF—7Æ’F†—26ÖÆÆW"†VF–ærâÒÓà¢Ç7â6Æ73Ò'&ö6W72ÖGW&F–öâ#æfWr‡'>(	6÷fW&æ–v‡CÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"&ö6W72GW&F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢Çä6Æ–ærw&VBæB6†–ÆÆVB6òF†R7öævR7F—26ögBÂæ÷BG'’Â'’F†RF–ÖR—Bw2–÷W"6¶RãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöÆ“âÂÒÒ6Æ÷6RF†RÆ’6öçF–æW"âÒÓà ¢ÆÆ’6Æ73Ò'&ö6W72×7FW#âÂÒÒFW67&–&RöæR7FW–âF†R&¶–ær&ö6W72âÒÓà¢Ç7â6Æ73Ò'&ö6W72ÖçVÒ#ãSÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"&ö6W72çVÒâÒÓà¢ÆF—b6Æ73Ò'&ö6W72×7FWÖ&öG’#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"&ö6W72×7FWÖ&öG’âÒÓà¢ÆF—b6Æ73Ò'&ö6W72×7FWÖ†VB#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"&ö6W72×7FWÖ†VBâÒÓà¢ÆƒCå6ö¶–ærF†R7öævSÂöƒCâÂÒÒF—7Æ’F†—26ÖÆÆW"†VF–ærâÒÓà¢Ç7â6Æ73Ò'&ö6W72ÖGW&F–öâ#ã"²‡'2Â÷"GW&–ær6÷fW&vSÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"&ö6W72GW&F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÇåF‡&VRÖÖ–Æ²7öævW2æVVBBÆV7B"†÷W'26ö¶–ær&Vf÷&R76VÖ&Ç’â6–×ÆR7öævW2‡–æVÆRÂgVFvRÂWF2â’vWB6ö¶VBF†RÖöÖVçB6÷fW&vR7F'G2(	Bæò6W&FRv—BãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöÆ“âÂÒÒ6Æ÷6RF†RÆ’6öçF–æW"âÒÓà ¢ÆÆ’6Æ73Ò'&ö6W72×7FW#âÂÒÒFW67&–&RöæR7FW–âF†R&¶–ær&ö6W72âÒÓà¢Ç7â6Æ73Ò'&ö6W72ÖçVÒ#ãcÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"&ö6W72çVÒâÒÓà¢ÆF—b6Æ73Ò'&ö6W72×7FWÖ&öG’#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"&ö6W72×7FWÖ&öG’âÒÓà¢ÆF—b6Æ73Ò'&ö6W72×7FWÖ†VB#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"&ö6W72×7FWÖ†VBâÒÓà¢ÆƒCå&W–ærF†Rf–ÆÆ–æw3ÂöƒCâÂÒÒF—7Æ’F†—26ÖÆÆW"†VF–ærâÒÓà¢Ç7â6Æ73Ò'&ö6W72ÖGW&F–öâ#ã^(	3#Ö–ãÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"&ö6W72GW&F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢Çåv†—–ær7&VÒÂÆ÷GW27&VBÂ6†ö6öÆFR7&VBÂ7'W6†VB&—67V—B(	Bv†FWfW"–÷W"6¶R6ÆÇ2f÷"ÂÖFRg&W6‚ãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöÆ“âÂÒÒ6Æ÷6RF†RÆ’6öçF–æW"âÒÓà ¢ÆÆ’6Æ73Ò'&ö6W72×7FW#âÂÒÒFW67&–&RöæR7FW–âF†R&¶–ær&ö6W72âÒÓà¢Ç7â6Æ73Ò'&ö6W72ÖçVÒ#ãsÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"&ö6W72çVÒâÒÓà¢ÆF—b6Æ73Ò'&ö6W72×7FWÖ&öG’#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"&ö6W72×7FWÖ&öG’âÒÓà¢ÆF—b6Æ73Ò'&ö6W72×7FWÖ†VB#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"&ö6W72×7FWÖ†VBâÒÓà¢ÆƒCä6÷fW&–ærf×²f–æ—6†–æsÂöƒCâÂÒÒF—7Æ’F†—26ÖÆÆW"†VF–ærâÒÓà¢Ç7â6Æ73Ò'&ö6W72ÖGW&F–öâ#çWFò3Ö–ãÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"&ö6W72GW&F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÇåF†R7GVÂFV6÷&F–ær(	B—–ærÂ7&VF–ærÂÖ¶–ær—BÆöö²Æ–¶R–÷W"6¶RãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöÆ“âÂÒÒ6Æ÷6RF†RÆ’6öçF–æW"âÒÓà¢ÂööÃâÂÒÒ6Æ÷6RF†RöÂ6öçF–æW"âÒÓà ¢ÆF—b6Æ73Ò'&ö6W72×F÷FÂ&WfVÂ×W#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"&ö6W72×F÷FÂ×&WfVÂ×WâÒÓà¢Ç7â6Æ73Ò'&ö6W72×F÷FÂÖf–wW&R#çãR‡'3Â÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"&ö6W72×F÷FÂÖf–wW&RâÒÓà¢Çæöb†æG2Ööâv÷&²(	BæBF†Bw2&Vf÷&R6öÖR6¶W2vò&6²–âF†Rg&–FvRFò6†–ÆÂ÷fW&æ–v‡BâF†Bw2F†R&RÖ÷&FW"ÖF‚ãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà ¢ÂÒÒÓÓÓÓÒ6Æ÷6–ærFV6W"–çFòÆ6R÷&FW"ÓÓÓÓÒÒÓà¢ÆF—b6Æ73Ò&÷&FW"×FV6W"&WfVÂ×W#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"÷&FW"×FV6W"×&WfVÂ×WâÒÓà¢ÆF—b6Æ73Ò&÷&FW"×FV6W"Öf–wW&R#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"÷&FW"×FV6W"Öf–wW&RâÒÓà¢Æ–Ör7&3Ò&Ö66÷B÷÷6S2çvV'"ÇCÒ$Ö66÷B†öÆF–ær÷WBâ÷&FW"6Æ—Â–çf—F–ær–÷RFòÆ6Râ÷&FW""ÆöF–æsÒ&Æ§’#âÂÒÒF—7Æ’F†—2–ÖvRv—F‚—G266W76–&ÆRFW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÆF—b6Æ73Ò&÷&FW"×FV6W"×FW‡B#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"÷&FW"×FV6W"×FW‡BâÒÓà¢Çäv÷B–÷W"FFW26÷'FVCòÆWBw2vWB—B–âF†R&öö·2ãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢Æ‡&VcÒ"7Æ6RÖ÷&FW""6Æ73Ò&'Fâ×&–Ö'’#åÆ6R÷&FW#ÂöâÂÒÒ&÷f–FRF†—2æf–vF–öâ÷"6öçF7BÆ–æ²âÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà ¢Â÷6V7F–öãâÂÒÒ6Æ÷6RF†R6V7F–öâ6öçF–æW"âÒÓà ¢ÂÒÒÓÓÓÓÒ7W7FöÖW"&Wf–Ww2ÓÓÓÓÒÒÓà¢Ç6V7F–öâ6Æ73Ò'&Wf–Ww2"–CÒ'&Wf–Ww2"&–ÖÆ&VÃÒ$7W7FöÖW"&Wf–Ww2#âÂÒÒ¶VWF†R÷&–v–æÂ&Wf–Wr6V7F–öâæB—'ÆæRv—ö–çBâÒÓà¢Æƒ"6Æ73Ò'6V7F–öâÖ†VF–ær6V7F–öâÖ†VF–ærÒ×67&—B#ç7vVWBF†–æw2V÷ÆR6–CÂöƒ#âÂÒÒ&W6W'fRF†RW†—7F–ær†æGw&—FVB†VF–ærâÒÓà¢ÆF—b6Æ73Ò'&Wf–WrÖ7F–öç2#âÂÒÒöffW"6ÆV"v’FòÆVfR&VÂ&Wf–WrâÒÓà¢Æ'WGFöâG—SÒ&'WGFöâ"6Æ73Ò&'Fâ×&–Ö'’"–CÒ'&Wf–WrÖ÷Vâ"&–ÖW‡æFVCÒ&fÇ6R"&–Ö6öçG&öÇ3Ò&7W7FöÖW"×&Wf–WrÖf÷&Ò#åw&—FR&Wf–WsÂö'WGFöãâÂÒÒ÷VâF†R66W76–&ÆR&Wf–Wrf÷&ÒâÒÓà¢ÂöF—câÂÒÒVæBF†R&Wf–Wr7F–öââÒÓà¢Æf÷&Ò–CÒ&7W7FöÖW"×&Wf–WrÖf÷&Ò"6Æ73Ò&7W7FöÖW"×&Wf–WrÖf÷&Ò"†–FFVãâÂÒÒ7V&Ö—BV&Æ–2&Wf–Ww2v—F†÷WBÆVf–ærF†RvRâÒÓà¢Æƒ3æ†÷rv2–÷W"G&VCóÂöƒ3âÂÒÒv—fRF†Rf÷&Òg&–VæFÇ’†VF–ærâÒÓà¢Ç–CÒ'&Wf–Wr×V&Æ–2Öæ÷FR#å–÷W"æÖRÂ&F–ærÂ÷&FW"æB&Wf–Wrv–ÆÂ&R6†÷vâV&Æ–6Ç’âÆV6RÆVfR÷WB†öæRçVÖ&W'2æB÷F†W"&—fFRFWF–Ç2ãÂ÷âÂÒÒW‡Æ–âW†7FÇ’v†Bv–ÆÂV"öâF†R6&BâÒÓà¢ÆÆ&VÂf÷#Ò'&Wf–WrÖæÖR#å–÷W"æÖSÂöÆ&VÃâÂÒÒ&÷f–FRâ66W76–&ÆRæÖRÆ&VÂâÒÓà¢Æ–çWB–CÒ'&Wf–WrÖæÖR"æÖSÒ&æÖR"WFö6ö×ÆWFSÒ&æÖR"Ö†ÆVæwFƒÒ#c"&WV—&VB&–ÖFW67&–&VF'“Ò'&Wf–Wr×V&Æ–2Öæ÷FR#âÂÒÒ6öÆÆV7BöæÇ’F†RV&Æ–2F—7Æ’æÖRâÒÓà¢ÆÆ&VÂf÷#Ò'&Wf–WrÖ—FVÒ#åv†BF–B–÷R÷&FW#óÂöÆ&VÃâÂÒÒÆ&VÂF†R—FVÒ6†÷vâ&VæVF‚F†R&Wf–WvW"æÖRâÒÓà¢Æ–çWB–CÒ'&Wf–WrÖ—FVÒ"æÖSÒ&—FVÒ"Ö†ÆVæwFƒÒ#ƒ"Ö–æÆVæwFƒÒ#""Æ6V†öÆFW#Ò&Rærâ6†ö6öÆFRgVFvR6¶R"&WV—&VCâÂÒÒÆÆ÷rç’&VÂ÷&FW"Â–æ6ÇVF–ær7W7FöÒ6¶W2âÒÓà¢Æf–VÆG6WB6Æ73Ò'&Wf–Wr×&F–ær#âÂÒÒw&÷WF†R¶W–&ö&BÖ66W76–&ÆR&F–ær6†ö–6W2âÒÓà¢ÆÆVvVæCå–÷W"&F–æsÂöÆVvVæCâÂÒÒv—fRF†R&F–òw&÷W—G266W76–&ÆRæÖRâÒÓà¢ÆÆ&VÃãÆ–çWBG—SÒ'&F–ò"æÖSÒ'&F–ær"fÇVSÒ#"&WV—&VCãÇ7ãã)ˆSÂ÷7ããÂöÆ&VÃâÂÒÒ6VÆV7B÷WBöbR7F'2âÒÓà¢ÆÆ&VÃãÆ–çWBG—SÒ'&F–ò"æÖSÒ'&F–ær"fÇVSÒ#""&WV—&VCãÇ7ãã")ˆSÂ÷7ããÂöÆ&VÃâÂÒÒ6VÆV7B"÷WBöbR7F'2âÒÓà¢ÆÆ&VÃãÆ–çWBG—SÒ'&F–ò"æÖSÒ'&F–ær"fÇVSÒ#2"&WV—&VCãÇ7ãã2)ˆSÂ÷7ããÂöÆ&VÃâÂÒÒ6VÆV7B2÷WBöbR7F'2âÒÓà¢ÆÆ&VÃãÆ–çWBG—SÒ'&F–ò"æÖSÒ'&F–ær"fÇVSÒ#B"&WV—&VCãÇ7ããB)ˆSÂ÷7ããÂöÆ&VÃâÂÒÒ6VÆV7BB÷WBöbR7F'2âÒÓà¢ÆÆ&VÃãÆ–çWBG—SÒ'&F–ò"æÖSÒ'&F–ær"fÇVSÒ#R"&WV—&VCãÇ7ããR)ˆSÂ÷7ããÂöÆ&VÃâÂÒÒ6VÆV7BR÷WBöbR7F'2âÒÓà¢Âöf–VÆG6WCâÂÒÒVæB&F–ær6†ö–6W2âÒÓà¢ÆÆ&VÂf÷#Ò'&Wf–WrÖÖW76vR#å–÷W"&Wf–WsÂöÆ&VÃâÂÒÒÆ&VÂF†R&Wf–WrFW‡BâÒÓà¢ÇFW‡F&V–CÒ'&Wf–WrÖÖW76vR"æÖSÒ&ÖW76vR"&÷w3Ò#B"Ö–æÆVæwFƒÒ#"Ö†ÆVæwFƒÒ#"Æ6V†öÆFW#Ò%FVÆÂW2v†B–÷RVæ¦÷–VN(
+b"&WV—&VCãÂ÷FW‡F&VâÂÒÒ¶VW&Wf–Ww2&VF&ÆRæB&V6öæ&Ç’6—¦VBâÒÓà¢ÆF—b†–FFVâ&–Ö†–FFVãÒ'G'VR#ãÆÆ&VÃäÆVfRF†—2V×G“Æ–çWBæÖSÒ'vV'6—FR"F&–æFWƒÒ"Ó"WFö6ö×ÆWFSÒ&öfb#ãÂöÆ&VÃãÂöF—câÂÒÒFB6–×ÆR&÷BG&v—F†÷WB–çFW''WF–ær7W7FöÖW'2âÒÓà¢ÆF—b6Æ73Ò'&Wf–WrÖf÷&ÒÖ7F–öç2#âÂÒÒ¶VW7V&Ö—BæB6Æ÷6R7F–öç2FövWF†W"âÒÓà¢Æ'WGFöâG—SÒ'7V&Ö—B"6Æ73Ò&'Fâ×&–Ö'’"–CÒ'&Wf–Wr×7V&Ö—B#å÷7B&Wf–WsÂö'WGFöãâÂÒÒV&Æ—6‚öæÇ’gFW"fÆ–FF–öâæB7V66W76gVÂ7F÷&vRâÒÓà¢Æ'WGFöâG—SÒ&'WGFöâ"6Æ73Ò'&Wf–Wr×6V6öæF'’"–CÒ'&Wf–WrÖ6æ6VÂ#ä6æ6VÃÂö'WGFöãâÂÒÒ6Æ÷6RF†Rf÷&Òv—F†÷WB÷7F–ærâÒÓà¢ÂöF—câÂÒÒVæBf÷&Ò7F–öç2âÒÓà¢Âöf÷&ÓâÂÒÒVæBF†R&Wf–Wrf÷&ÒâÒÓà¢Ç–CÒ'&Wf–Wr×7V&Ö—B×7FGW2"6Æ73Ò'&Wf–Wr×7FGW2"&öÆSÒ'7FGW2"&–ÖÆ—fSÒ'öÆ—FR#ãÂ÷âÂÒÒææ÷Væ6R7V66W76gVÂ7V&Ö—76–öç2æB&V6÷fW&&ÆRW'&÷'2âÒÓà¢Ç–CÒ'&Wf–Ww2×7FGW2"6Æ73Ò'&Wf–Wr×7FGW2"&öÆSÒ'7FGW2#äÆöF–ær7W7FöÖW"&Wf–Ww>(
+cÂ÷âÂÒÒ6†÷r†öæW7BÆöF–ærÂV×G’æBW'&÷"7FFW2âÒÓà¢Æ'WGFöâ–CÒ'&Wf–Ww2×&WG'’"6Æ73Ò'&Wf–Wr×6V6öæF'’"G—SÒ&'WGFöâ"†–FFVãåG'’ÆöF–ær&Wf–Ww2v–ãÂö'WGFöãâÂÒÒ&V6÷fW"g&öÒ6öææV7F–öâf–ÇW&RâÒÓà¢ÆF—b6Æ73Ò'&Wf–Ww2×G&6²"–CÒ&7W7FöÖW"×&Wf–Ww2×G&6²"&öÆSÒ'&Vv–öâ"&–ÖÆ&VÃÒ$7W7FöÖW"&Wf–Wr6&G2"F&–æFWƒÒ#"†–FFVããÂöF—câÂÒÒF—7Æ’&VÂ&Wf–Ww2–âF†R÷&–v–æÂ†÷&—¦öçFÆÇ’67&öÆÆ&ÆR6&B&÷râÒÓà¢Ç6Æ73Ò'&Wf–Ww2Ö†–çB"–CÒ&7W7FöÖW"×&Wf–Ww2Ö†–çB"†–FFVãî(i67&öÆÂ÷"7v—Rf÷"Ö÷&R(i#Â÷âÂÒÒ6†÷rF†R÷&–v–æÂ†–çBöæÇ’v†Vâ&Wf–Ww2W†—7BâÒÓà¢Æ'WGFöâG—SÒ&'WGFöâ"6Æ73Ò'&Wf–Wr×6V6öæF'’"–CÒ'&Wf–Ww2ÖÖ÷&R"†–FFVãäÆöBÖ÷&R&Wf–Ww3Âö'WGFöãâÂÒÒÆWBf—6—F÷'2&V6‚öÆFW"&Wf–Ww2v—F†÷WBÆöF–ærWfW'’6&BBöæ6RâÒÓà¢Ææ÷67&—CãÇ6Æ73Ò'&Wf–Wr×7FGW2#åÆV6RVæ&ÆR¦f67&—BFò&VBæB÷7B7W7FöÖW"&Wf–Ww2ãÂ÷ãÂöæ÷67&—CâÂÒÒW‡Æ–âF†RfVGW&Rv†Vâ67&—G2&RF—6&ÆVBâÒÓà¢Â÷6V7F–öãâÂÒÒVæB7W7FöÖW"&Wf–Ww2âÒÓà ¢ÂÒÒÓÓÓÓÒdÓÓÓÓÒÒÓà¢Ç6V7F–öâ6Æ73Ò&f"–CÒ&f"&–ÖÆ&VÃÒ$g&WVVçFÇ’6¶VBVW7F–öç2#âÂÒÒw&÷WF†—26V7F–öâöbF†RvRf÷"fâÒÓà¢Æƒ"6Æ73Ò'6V7F–öâÖ†VF–ær6V7F–öâÖ†VF–ærÒ×67&—B#çV–6²ç7vW'2&Vf÷&R–÷R÷&FW#Âöƒ#âÂÒÒF—7Æ’F†—26V7F–öâ†VF–ærf÷"6V7F–öâ†VF–ær6V7F–öâ†VF–ær67&—BâÒÓà ¢ÆF—b6Æ73Ò&fÖÆ—7B#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fÆ—7BâÒÓà ¢ÆFWF–Ç26Æ73Ò&fÖ—FVÒ#âÂÒÒ&÷f–FRâW‡æF&ÆRdç7vW"âÒÓà¢Ç7VÖÖ'“âÂÒÒ&÷f–FRF†R6Æ–6¶&ÆRdVW7F–öââÒÓà¢Ç7ãä†÷rf"–âGfæ6RFò’æVVBFò÷&FW#óÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBâÒÓà¢Ç7â6Æ73Ò&fÖ–6öâ"&–Ö†–FFVãÒ'G'VR#ãÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"f–6öââÒÓà¢Â÷7VÖÖ'“âÂÒÒ6Æ÷6RF†R7VÖÖ'’6öçF–æW"âÒÓà¢ÆF—b6Æ73Ò&fÖç7vW"#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fç7vW"âÒÓà¢ÇåF†R7vVWB7÷B—2BÆV7BF’w2æ÷F–6RâF†RÆ‡&VcÒ"7&RÖ÷&FW'2#ç&RÖ÷&FW"Æ÷vF÷vãÂöâW‡Æ–ç2v‡’ãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöFWF–Ç3âÂÒÒ6Æ÷6RF†RFWF–Ç26öçF–æW"âÒÓà ¢ÆFWF–Ç26Æ73Ò&fÖ—FVÒ#âÂÒÒ&÷f–FRâW‡æF&ÆRdç7vW"âÒÓà¢Ç7VÖÖ'“âÂÒÒ&÷f–FRF†R6Æ–6¶&ÆRdVW7F–öââÒÓà¢Ç7ãäFò–÷RF¶R6ÖRÖF’÷"W&vVçB÷&FW'3óÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBâÒÓà¢Ç7â6Æ73Ò&fÖ–6öâ"&–Ö†–FFVãÒ'G'VR#ãÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"f–6öââÒÓà¢Â÷7VÖÖ'“âÂÒÒ6Æ÷6RF†R7VÖÖ'’6öçF–æW"âÒÓà¢ÆF—b6Æ73Ò&fÖç7vW"#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fç7vW"âÒÓà¢Çå6öÖWF–ÖW2’æVVBBÆV7Bb†÷W'2ræ÷F–6RFò&¶RÂ6ööÂÂæBf–æ—6‚–÷W"6¶RâÖW76vRÖRf—'7B6ò’6â6†V6²v†WF†W"F†W&Rw2&ööÒf÷"–÷W"÷&FW"ãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöFWF–Ç3âÂÒÒ6Æ÷6RF†RFWF–Ç26öçF–æW"âÒÓà ¢ÆFWF–Ç26Æ73Ò&fÖ—FVÒ#âÂÒÒ&÷f–FRâW‡æF&ÆRdç7vW"âÒÓà¢Ç7VÖÖ'“âÂÒÒ&÷f–FRF†R6Æ–6¶&ÆRdVW7F–öââÒÓà¢Ç7ãä†÷rFò’7GVÆÇ’Æ6Râ÷&FW#óÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBâÒÓà¢Ç7â6Æ73Ò&fÖ–6öâ"&–Ö†–FFVãÒ'G'VR#ãÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"f–6öââÒÓà¢Â÷7VÖÖ'“âÂÒÒ6Æ÷6RF†R7VÖÖ'’6öçF–æW"âÒÓà¢ÆF—b6Æ73Ò&fÖç7vW"#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fç7vW"âÒÓà¢ÇåF‡&÷Vv‚v†G4ÂF†R÷&FW"f÷&ÒöâF†—26—FRÂ÷"–ç7Fw&ÒDÒ(	Bv†–6†WfW"w2V6–W7Bf÷"–÷RãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöFWF–Ç3âÂÒÒ6Æ÷6RF†RFWF–Ç26öçF–æW"âÒÓà ¢ÆFWF–Ç26Æ73Ò&fÖ—FVÒ#âÂÒÒ&÷f–FRâW‡æF&ÆRdç7vW"âÒÓà¢Ç7VÖÖ'“âÂÒÒ&÷f–FRF†R6Æ–6¶&ÆRdVW7F–öââÒÓà¢Ç7ãåv†B6—¦W2Fò–÷W"6¶W26öÖR–ãóÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBâÒÓà¢Ç7â6Æ73Ò&fÖ–6öâ"&–Ö†–FFVãÒ'G'VR#ãÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"f–6öââÒÓà¢Â÷7VÖÖ'“âÂÒÒ6Æ÷6RF†R7VÖÖ'’6öçF–æW"âÒÓà¢ÆF—b6Æ73Ò&fÖç7vW"#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fç7vW"âÒÓà¢Çä&VçFòÂ÷VæBÂ"÷VæBÂæB2ãR÷VæBâF†R&–v‡B6—¦RFWVæG2öâ–÷W"wVW7B6÷VçBæB†÷rvVæW&÷W2–÷RÆ–¶R–÷W"6Æ–6W2âVç7W&SòÖW76vRÖRæBvRvÆÂv÷&²—B÷WBãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöFWF–Ç3âÂÒÒ6Æ÷6RF†RFWF–Ç26öçF–æW"âÒÓà ¢ÆFWF–Ç26Æ73Ò&fÖ—FVÒ#âÂÒÒ&÷f–FRâW‡æF&ÆRdç7vW"âÒÓà¢Ç7VÖÖ'“âÂÒÒ&÷f–FRF†R6Æ–6¶&ÆRdVW7F–öââÒÓà¢Ç7ãä6â’7W7FöÖ—¦RF†RfÆf÷"÷"FW6–vãóÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBâÒÓà¢Ç7â6Æ73Ò&fÖ–6öâ"&–Ö†–FFVãÒ'G'VR#ãÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"f–6öââÒÓà¢Â÷7VÖÖ'“âÂÒÒ6Æ÷6RF†R7VÖÖ'’6öçF–æW"âÒÓà¢ÆF—b6Æ73Ò&fÖç7vW"#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fç7vW"âÒÓà¢Çä’vÒ¶VW–ær7W7FöÖ—¦F–öç26–×ÆRf÷"æ÷r(	BF†–æ²fÆf÷"7v2æB6ÖÆÂFW6–vâGvV·2âVÆ&÷&FRFW6–vç2&VâwBf–Æ&ÆR–WBÂ'WB6VæBÖR–÷W"–FVæB’vÆÂÆWB–÷R¶æ÷rv†Bw2÷76–&ÆRãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöFWF–Ç3âÂÒÒ6Æ÷6RF†RFWF–Ç26öçF–æW"âÒÓà ¢ÆFWF–Ç26Æ73Ò&fÖ—FVÒ#âÂÒÒ&÷f–FRâW‡æF&ÆRdç7vW"âÒÓà¢Ç7VÖÖ'“âÂÒÒ&÷f–FRF†R6Æ–6¶&ÆRdVW7F–öââÒÓà¢Ç7ãäFò–÷RFòVvvÆW726¶W2÷"6FW"FòF–WF'’&W7G&–7F–öç3óÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBâÒÓà¢Ç7â6Æ73Ò&fÖ–6öâ"&–Ö†–FFVãÒ'G'VR#ãÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"f–6öââÒÓà¢Â÷7VÖÖ'“âÂÒÒ6Æ÷6RF†R7VÖÖ'’6öçF–æW"âÒÓà¢ÆF—b6Æ73Ò&fÖç7vW"#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fç7vW"âÒÓà¢Çäæ÷BBF†RÖöÖVçB(	B'WBF†BÖ–v‡B6†ævRF÷vâF†RÆ–æRãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöFWF–Ç3âÂÒÒ6Æ÷6RF†RFWF–Ç26öçF–æW"âÒÓà ¢ÆFWF–Ç26Æ73Ò&fÖ—FVÒ#âÂÒÒ&÷f–FRâW‡æF&ÆRdç7vW"âÒÓà¢Ç7VÖÖ'“âÂÒÒ&÷f–FRF†R6Æ–6¶&ÆRdVW7F–öââÒÓà¢Ç7ãåv†B–ÖVçBÖWF†öG2Fò–÷R66WCóÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBâÒÓà¢Ç7â6Æ73Ò&fÖ–6öâ"&–Ö†–FFVãÒ'G'VR#ãÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"f–6öââÒÓà¢Â÷7VÖÖ'“âÂÒÒ6Æ÷6RF†R7VÖÖ'’6öçF–æW"âÒÓà¢ÆF—b6Æ73Ò&fÖç7vW"#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fç7vW"âÒÓà¢ÇäÖVW¦â&æ²G&ç6fW"Â¦§¤66‚ÂV7•—6Â6F’Â÷"æ–’ãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöFWF–Ç3âÂÒÒ6Æ÷6RF†RFWF–Ç26öçF–æW"âÒÓà ¢ÆFWF–Ç26Æ73Ò&fÖ—FVÒ#âÂÒÒ&÷f–FRâW‡æF&ÆRdç7vW"âÒÓà¢Ç7VÖÖ'“âÂÒÒ&÷f–FRF†R6Æ–6¶&ÆRdVW7F–öââÒÓà¢Ç7ãäFò–÷RFVÆ—fW"Â÷"—2—B–6·WöæÇ“óÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBâÒÓà¢Ç7â6Æ73Ò&fÖ–6öâ"&–Ö†–FFVãÒ'G'VR#ãÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"f–6öââÒÓà¢Â÷7VÖÖ'“âÂÒÒ6Æ÷6RF†R7VÖÖ'’6öçF–æW"âÒÓà¢ÆF—b6Æ73Ò&fÖç7vW"#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fç7vW"âÒÓà¢Çä&÷F‚(	BFVÆ—fW'’æB–6·W&Rf–Æ&ÆRÂ'WBöæÇ’v—F†–â×VÇFâf÷"æ÷rãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöFWF–Ç3âÂÒÒ6Æ÷6RF†RFWF–Ç26öçF–æW"âÒÓà ¢ÆFWF–Ç26Æ73Ò&fÖ—FVÒ#âÂÒÒ&÷f–FRâW‡æF&ÆRdç7vW"âÒÓà¢Ç7VÖÖ'“âÂÒÒ&÷f–FRF†R6Æ–6¶&ÆRdVW7F–öââÒÓà¢Ç7ãä6â’6æ6VÂ÷"6†ævR×’÷&FW"gFW"Æ6–ær—CóÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBâÒÓà¢Ç7â6Æ73Ò&fÖ–6öâ"&–Ö†–FFVãÒ'G'VR#ãÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"f–6öââÒÓà¢Â÷7VÖÖ'“âÂÒÒ6Æ÷6RF†R7VÖÖ'’6öçF–æW"âÒÓà¢ÆF—b6Æ73Ò&fÖç7vW"#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fç7vW"âÒÓà¢Çå–÷RwfRv÷BÖ†÷W"v–æF÷rgFW"Æ6–ær–÷W"÷&FW"FòÖ¶R6†ævW2âgFW"F†BÂ—Bw2Æö6¶VB–â(	B6ò—Bw2v÷'F‚F÷V&ÆR6†V6¶–ærWfW'—F†–ærv—F†–âF†B†÷W"ãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöFWF–Ç3âÂÒÒ6Æ÷6RF†RFWF–Ç26öçF–æW"âÒÓà ¢ÆFWF–Ç26Æ73Ò&fÖ—FVÒ#âÂÒÒ&÷f–FRâW‡æF&ÆRdç7vW"âÒÓà¢Ç7VÖÖ'“âÂÒÒ&÷f–FRF†R6Æ–6¶&ÆRdVW7F–öââÒÓà¢Ç7ãåv†BvöW2–çFò'WGGFW&6Æ÷VB&¶SóÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBâÒÓà¢Ç7â6Æ73Ò&fÖ–6öâ"&–Ö†–FFVãÒ'G'VR#ãÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"f–6öââÒÓà¢Â÷7VÖÖ'“âÂÒÒ6Æ÷6RF†R7VÖÖ'’6öçF–æW"âÒÓà¢ÆF—b6Æ73Ò&fÖç7vW"#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fç7vW"âÒÓà¢Çå–÷W"÷&FW"—2ÖFRg&W6‚g&öÒ67&F6‚Âv—F‚&V6—W2’wfRFW7FVBæB&Vf–æVBâg&öÒF†R7öævRFòF†Rf–æ—6†–ærF÷V6†W2ÂV6‚&¶RvWG2×’gVÆÂGFVçF–öâ(	BF†Bw2F†R6&R&V†–æB—BãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöFWF–Ç3âÂÒÒ6Æ÷6RF†RFWF–Ç26öçF–æW"âÒÓà ¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢Â÷6V7F–öãâÂÒÒ6Æ÷6RF†R6V7F–öâ6öçF–æW"âÒÓà ¢ÂÒÒÓÓÓÓÒÆ6R÷&FW"ÓÓÓÓÒÒÓà¢Ç6V7F–öâ6Æ73Ò'Æ6RÖ÷&FW""–CÒ'Æ6RÖ÷&FW""&–ÖÆ&VÃÒ%Æ6R–÷W"÷&FW"#âÂÒÒw&÷WF†—26V7F–öâöbF†RvRf÷"Æ6R÷&FW"âÒÓà¢Æƒ"6Æ73Ò'6V7F–öâÖ†VF–ær6V7F–öâÖ†VF–ærÒ×67&—B#æÆWBw2vWB–÷R6¶SÂöƒ#âÂÒÒF—7Æ’F†—26V7F–öâ†VF–ærf÷"6V7F–öâ†VF–ær6V7F–öâ†VF–ær67&—BâÒÓà¢Ç6Æ73Ò'Æ6RÖ÷&FW"Ö–çG&ò#ä6†V6²–÷W"–6·2ÂFB–÷W"FWF–Ç2ÂæBFÆ6R÷&FW"âF†Vâ6VæBF†R&VG’×FòÖvòv†G4ÖW76vRFò6öæf—&Ò–÷W"÷&FW"â–bç—F†–æræVVG2æ÷F†W"G'’Â–÷RvÆÂ6VRÖW76vR†W&RãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öâf÷"Æ6R÷&FW"–çG&òâÒÓà ¢ÆF—b6Æ73Ò&6†V6¶÷WB×7VÖÖ'’"–CÒ&6†V6¶÷WB×7VÖÖ'’#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"6†V6¶÷WB7VÖÖ'’âÒÓà¢Æƒ26Æ73Ò&6†V6¶÷WB×7VÖÖ'’×F—FÆR#ç–÷W"÷&FW#Âöƒ3âÂÒÒF—7Æ’F†—27V'6V7F–öâ†VF–ærf÷"6†V6¶÷WB7VÖÖ'’F—FÆRâÒÓà¢ÆF—b–CÒ&6†V6¶÷WB×7VÖÖ'’Ö&öG’#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"6†V6¶÷WB7VÖÖ'’&öG’âÒÓà¢Ç6Æ73Ò&6'BÖV×G’#äæ÷F†–ær†W&R–WB(	BÆ‡&VcÒ"6ÖVçR#ç–6²6öÖWF†–ær7vVWBg&öÒF†RÖVçSÂöâãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öâf÷"6'BV×G’âÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÆF—b6Æ73Ò&6†V6¶÷WB×7VÖÖ'’×F÷FÂ"–CÒ&6†V6¶÷WB×7VÖÖ'’×F÷FÂ"†–FFVãâÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"6†V6¶÷WB7VÖÖ'’F÷FÂâÒÓà¢Ç7ãåF÷FÃÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBâÒÓà¢Ç7â–CÒ&6†V6¶÷WB×F÷FÂÖÖ÷VçB#å'2âÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"6†V6¶÷WBF÷FÂÖ÷VçBâÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà ¢Æf÷&Ò6Æ73Ò&÷&FW"Öf÷&Ò"–CÒ&÷&FW"Öf÷&Ò"7F–öãÒ&‡GG3¢òöf÷&×7&VRæ–òöb÷‡f¶ö¶v"ÖWF†öCÒ%õ5B#âÂÒÒ6öÆÆV7BF†R7W7FöÖW.(	—2÷&FW"FWF–Ç2âÒÓà¢Æ–çWBG—SÒ&†–FFVâ"æÖSÒ%÷7V&¦V7B"fÇVSÒ$æWr'WGGFW&6Æ÷VB÷&FW"#âÂÒÒ6öÆÆV7B÷"7F÷&RF†—2f÷&ÒfÇVRâÒÓà¢Æ–çWBG—SÒ&†–FFVâ"æÖSÒ&6'Eö—FV×2"–CÒ&6'BÖ—FV×2Öf–VÆB#âÂÒÒ6öÆÆV7B÷"7F÷&RF†—2f÷&ÒfÇVRf÷"6'B—FV×2f–VÆBâÒÓà ¢ÆF—b6Æ73Ò&f÷&Ò×&÷r#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"f÷&Ò&÷râÒÓà¢ÆÆ&VÂf÷#Ò&öbÖæÖR#å–÷W"æÖR‡&WV—&VB“ÂöÆ&VÃâÂÒÒæÖRF†RÖF6†–ærf÷&Ò6öçG&öÂâÒÓà¢Æ–çWBG—SÒ'FW‡B"–CÒ&öbÖæÖR"æÖSÒ&æÖR"&WV—&VBWFö6ö×ÆWFSÒ&æÖR#âÂÒÒ6öÆÆV7B÷"7F÷&RF†—2f÷&ÒfÇVRf÷"öbæÖRâÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà ¢ÆF—b6Æ73Ò&f÷&Ò×&÷r#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"f÷&Ò&÷râÒÓà¢ÆÆ&VÂf÷#Ò&öb×†öæR#å†öæRçVÖ&W"‡&WV—&VB“ÂöÆ&VÃâÂÒÒæÖRF†RÖF6†–ærf÷&Ò6öçG&öÂâÒÓà¢Æ–çWBG—SÒ'FVÂ"–CÒ&öb×†öæR"æÖSÒ'†öæR"&WV—&VBWFö6ö×ÆWFSÒ'FVÂ"Æ6V†öÆFW#Ò#5…‚………………‚#âÂÒÒ6öÆÆV7B÷"7F÷&RF†—2f÷&ÒfÇVRf÷"öb†öæRâÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà ¢ÆF—b6Æ73Ò&f÷&Ò×&÷r#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"f÷&Ò&÷râÒÓà¢ÆÆ&VÂf÷#Ò&öbÖFFR#äFFR–÷RæVVB—B'’‡&WV—&VB“ÂöÆ&VÃâÂÒÒæÖRF†RÖF6†–ærf÷&Ò6öçG&öÂâÒÓà¢Æ–çWBG—SÒ&FFR"–CÒ&öbÖFFR"æÖSÒ&FFUöæVVFVB"&WV—&VCâÂÒÒ6öÆÆV7B÷"7F÷&RF†—2f÷&ÒfÇVRf÷"öbFFRâÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà ¢ÆF—b6Æ73Ò&f÷&Ò×&÷r#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"f÷&Ò&÷râÒÓà¢Ç7â6Æ73Ò&f÷&ÒÖÆ&VÂ#å–6·W÷"FVÆ—fW'“ò‡&WV—&VB“Â÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"f÷&ÒÆ&VÂâÒÓà¢ÆF—b6Æ73Ò&6†—Öw&÷W"&öÆSÒ'&F–öw&÷W"&–ÖÆ&VÃÒ%–6·W÷"FVÆ—fW'’#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"6†—w&÷WâÒÓà¢Æ–çWBG—SÒ'&F–ò"–CÒ&gVÆf–Â×–6·W"æÖSÒ&gVÆf–ÆÆÖVçB"fÇVSÒ%–6·W"&WV—&VCâÂÒÒ6öÆÆV7B÷"7F÷&RF†—2f÷&ÒfÇVRf÷"gVÆf–Â–6·WâÒÓà¢ÆÆ&VÂf÷#Ò&gVÆf–Â×–6·W"6Æ73Ò&6†—#å–6·WÂöÆ&VÃâÂÒÒæÖRF†RÖF6†–ærf÷&Ò6öçG&öÂâÒÓà ¢Æ–çWBG—SÒ'&F–ò"–CÒ&gVÆf–ÂÖFVÆ—fW'’"æÖSÒ&gVÆf–ÆÆÖVçB"fÇVSÒ$FVÆ—fW'’"&WV—&VCâÂÒÒ6öÆÆV7B÷"7F÷&RF†—2f÷&ÒfÇVRf÷"gVÆf–ÂFVÆ—fW'’âÒÓà¢ÆÆ&VÂf÷#Ò&gVÆf–ÂÖFVÆ—fW'’"6Æ73Ò&6†—#äFVÆ—fW'’„×VÇFâöæÇ’“ÂöÆ&VÃâÂÒÒæÖRF†RÖF6†–ærf÷&Ò6öçG&öÂâÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà ¢ÆF—b6Æ73Ò&f÷&Ò×&÷r"–CÒ&FG&W72×&÷r"†–FFVãâÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"FG&W72&÷râÒÓà¢ÆÆ&VÂf÷#Ò&öbÖFG&W72#äFVÆ—fW'’FG&W73ÂöÆ&VÃâÂÒÒæÖRF†RÖF6†–ærf÷&Ò6öçG&öÂâÒÓà¢ÇFW‡F&V–CÒ&öbÖFG&W72"æÖSÒ&FG&W72"&÷w3Ò#""Æ6V†öÆFW#Ò$gVÆÂFG&W72–â×VÇFâ#ãÂ÷FW‡F&VâÂÒÒ&÷f–FRf–VÆBf÷"ÆöævW"ÖW76vRf÷"öbFG&W72âÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà ¢ÆF—b6Æ73Ò&f÷&Ò×&÷r#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"f÷&Ò&÷râÒÓà¢ÆÆ&VÂf÷#Ò&öbÖÖW76vR#äç’Æ—GFÆRFWF–Ç3òÇ7â6Æ73Ò&f÷&ÒÖ÷F–öæÂ#â†÷F–öæÂ“Â÷7ããÂöÆ&VÃâÂÒÒæÖRF†RÖF6†–ærf÷&Ò6öçG&öÂâÒÓà¢ÇFW‡F&V–CÒ&öbÖÖW76vR"æÖSÒ&ÖW76vR"&÷w3Ò#2"Æ6V†öÆFW#Ò%F†Rö666–öâÂÖW76vRöâF†R6¶RÂ÷"ç—F†–ærVÇ6R’6†÷VÆB¶æ÷r#ãÂ÷FW‡F&VâÂÒÒ&÷f–FRf–VÆBf÷"ÆöævW"ÖW76vRf÷"öbÖW76vRâÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà ¢Æ'WGFöâG—SÒ'7V&Ö—B"6Æ73Ò&'Fâ×&–Ö'’÷&FW"×7V&Ö—B"F—6&ÆVCåÆ6R÷&FW#Âö'WGFöãâÂÒÒ&÷f–FR6Æ–6¶&ÆR÷"¶W–&ö&BÖ66W76–&ÆR'WGFöâf÷"'Fâ&–Ö'’÷&FW"7V&Ö—BâÒÓà¢Ææ÷67&—CãÇåÆV6RGW&âöâ¦f67&—BFòW6RF†—2f÷&ÒÂ÷"ÖW76vRÖRöâv†G4Fò÷&FW"ãÂ÷ãÂöæ÷67&—CâÂÒÒ6†÷r†VÇv†Vâ¦f67&—B—2F—6&ÆVBâÒÓà¢Ç6Æ73Ò&÷&FW"×7FGW2"–CÒ&÷&FW"×7FGW2"&öÆSÒ'7FGW2#ãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öâf÷"÷&FW"7FGW2âÒÓà¢Æ–CÒ&÷&FW"×v†G6"6Æ73Ò&'Fâ×&–Ö'’"F&vWCÒ%ö&Ææ²"&VÃÒ&æö÷VæW"æ÷&VfW'&W""†–FFVãä6öçF–çVRöâv†G4ÂöâÂÒÒ&÷f–FRF†—2æf–vF–öâ÷"6öçF7BÆ–æ²âÒÓà ¢Âöf÷&ÓâÂÒÒ6Æ÷6RF†Rf÷&Ò6öçF–æW"âÒÓà¢Â÷6V7F–öãâÂÒÒ6Æ÷6RF†R6V7F–öâ6öçF–æW"âÒÓà¢ÂöÖ–ãâÂÒÒ6Æ÷6RF†RÖ–â6öçF–æW"âÒÓà ¢ÂÒÒÓÓÓÓÒfö÷FW"ÓÓÓÓÒÒÓà¢Æfö÷FW"6Æ73Ò'6—FRÖfö÷FW"#âÂÒÒ7F'BF†Rfö÷FW"v—F‚6öçF7BæBæf–vF–öâFWF–Ç2âÒÓà¢ÆF—b6Æ73Ò&fö÷FW"×F÷#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fö÷FW"F÷âÒÓà¢ÆF—b6Æ73Ò&fö÷FW"Ö'&æB#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fö÷FW"'&æBâÒÓà¢Æ–Ör7&3Ò&Æövòçær"ÇCÒ&'WGGFW&6Æ÷VBÆövò"6Æ73Ò&fö÷FW"ÖÆövò#âÂÒÒF—7Æ’F†—2–ÖvRv—F‚—G266W76–&ÆRFW67&—F–öââÒÓà¢Ç6Æ73Ò&fö÷FW"×FvÆ–æR#ä†öÖVÖFRâ†æFÖFRâv÷'F‚F†Rv—BãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öâf÷"fö÷FW"FvÆ–æRâÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà ¢ÆF—b6Æ73Ò&fö÷FW"Ö6öÂ#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fö÷FW"6öÂâÒÓà¢ÆƒCæf–æB–÷W"v“ÂöƒCâÂÒÒF—7Æ’F†—26ÖÆÆW"†VF–ærâÒÓà¢Æ‡&VcÒ"77F÷'’#å7F÷'“ÂöâÂÒÒ&÷f–FRF†—2æf–vF–öâ÷"6öçF7BÆ–æ²âÒÓà¢Æ‡&VcÒ"6ÖVçR#äÖVçSÂöâÂÒÒ&÷f–FRF†—2æf–vF–öâ÷"6öçF7BÆ–æ²âÒÓà¢Æ‡&VcÒ"6vÆÆW'’#ävÆÆW'“ÂöâÂÒÒ&÷f–FRF†—2æf–vF–öâ÷"6öçF7BÆ–æ²âÒÓà¢Æ‡&VcÒ"7&RÖ÷&FW'2#å&RÔ÷&FW'3ÂöâÂÒÒ&÷f–FRF†—2æf–vF–öâ÷"6öçF7BÆ–æ²âÒÓà¢Æ‡&VcÒ"7&Wf–Ww2#å&Wf–Ww3ÂöâÂÒÒ&÷f–FRF†—2æf–vF–öâ÷"6öçF7BÆ–æ²âÒÓà¢Æ‡&VcÒ"6f#ädÂöâÂÒÒ&÷f–FRF†—2æf–vF–öâ÷"6öçF7BÆ–æ²âÒÓà¢Æ‡&VcÒ"7Æ6RÖ÷&FW"#ä÷&FW"æ÷sÂöâÂÒÒ&÷f–FRF†—2æf–vF–öâ÷"6öçF7BÆ–æ²âÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà ¢ÆF—b6Æ73Ò&fö÷FW"Ö6öÂ#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fö÷FW"6öÂâÒÓà¢ÆƒCç6’†VÆÆóÂöƒCâÂÒÒF—7Æ’F†—26ÖÆÆW"†VF–ærâÒÓà¢ÂÒÒW6W2F†R6ÖRv†G4çVÖ&W"2F†R÷&FW"f÷&ÒâÒÓà¢Æ‡&VcÒ"2"–CÒ&fö÷FW"×v†G6ÖÆ–æ²"F&vWCÒ%ö&Ææ²"&VÃÒ&æö÷VæW"#åv†G4ÂöâÂÒÒ&÷f–FRF†—2æf–vF–öâ÷"6öçF7BÆ–æ²âÒÓà¢Æ‡&VcÒ&‡GG3¢ò÷wwræ–ç7Fw&Òæ6öÒö'WGGFW&6Æ÷VB"F&vWCÒ%ö&Ææ²"&VÃÒ&æö÷VæW"#ä–ç7Fw&ÓÂöâÂÒÒ&÷f–FRF†—2æf–vF–öâ÷"6öçF7BÆ–æ²âÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà ¢ÆF—b6Æ73Ò&fö÷FW"Ö6öÂ#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fö÷FW"6öÂâÒÓà¢ÆƒCçv†W&RFòf–æBW3ÂöƒCâÂÒÒF—7Æ’F†—26ÖÆÆW"†VF–ærâÒÓà¢Çå–6·Wf×²FVÆ—fW'’f–Æ&ÆR–â×VÇFâÂ¶—7FâãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öââÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà ¢ÆF—b6Æ73Ò&fö÷FW"Ö&÷GFöÒ#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"fö÷FW"&÷GFöÒâÒÓà¢Çâf6÷“²Ç7â–CÒ&fö÷FW"×–V"#ãÂ÷7ãâ'WGGFW&6Æ÷VBâÆÂ&–v‡G2&W6W'fVBãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öâf÷"fö÷FW"–V"âÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢Âöfö÷FW#âÂÒÒ6Æ÷6RF†Rfö÷FW"6öçF–æW"âÒÓà ¢ÂÒÒ$õEDôÒ5D”4µ’Ôô$”ÄR4%B$"ÒÓà¢ÆF—b–CÒ&Öö&–ÆR×7F–6·’Ö6'B"6Æ73Ò'7F–6·’Ö6'BÖ&""7G–ÆSÒ&F—7Æ“¢æöæS²#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"Öö&–ÆR7F–6·’6'BâÒÓà¢ÆF—b6Æ73Ò'7F–6·’Ö6'BÖ6öçFVçB#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"7F–6·’6'B6öçFVçBâÒÓà¢ÆF—b6Æ73Ò'7F–6·’Ö6'BÖÆVgB#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"7F–6·’6'BÆVgBâÒÓà¢Ç7â6Æ73Ò'7F–6·’Ö6'BÖ&FvR"–CÒ'7F–6·’Ö6'BÖ6÷VçB#ãÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"F–6·’6'B6÷VçBâÒÓà¢Ç7â6Æ73Ò'7F–6·’Ö6'B×FW‡B#ä–â–÷W"6'CÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"7F–6·’6'BFW‡BâÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÆF—b6Æ73Ò'7F–6·’Ö6'B×&–v‡B#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"7F–6·’6'B&–v‡BâÒÓà¢Ç7â6Æ73Ò'7F–6·’Ö6'B×F÷FÂ"–CÒ'7F–6·’Ö6'B×F÷FÂ#å'2âÂ÷7ãâÂÒÒF—7Æ’F†—26†÷'BÆ&VÂ÷"FV6÷&F—fRVÆVÖVçBf÷"7F–6·’6'BF÷FÂâÒÓà¢Æ'WGFöâ6Æ73Ò'7F–6·’Ö6'BÖ'Fâ"–CÒ'7F–6·’Ö6'B×G&–vvW"#åf–Wr6'B)éCÂö'WGFöãâÂÒÒ&÷f–FR6Æ–6¶&ÆR÷"¶W–&ö&BÖ66W76–&ÆR'WGFöâf÷"7F–6·’6'BG&–vvW"âÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢ÂöF—cãÂÒÒò76Öö÷F‚Ö6öçFVçBÒÓà¢ÂöF—cãÂÒÒò76Öö÷F‚×w&W"ÒÓà ¢ÂÒÒÆ&vW"&öGV7Bf–Ws²F†R'&÷w6W"G&2fö7W2†W&Rv†–ÆR—B—2÷VââÒÓà¢ÆF–Æör–CÒ'&öGV7B×f–WvW""6Æ73Ò'&öGV7B×f–WvW""&–ÖÆ&VÆÆVF'“Ò'&öGV7B×f–WvW"×F—FÆR"FFÖÆVæ—2×&WfVçCâÂÒÒFVf–æRF†R66W76–&ÆRVæÆ&vVB×&öGV7B†÷Fòf–WvW"âÒÓà¢Ç6V7F–öâ6Æ73Ò'&öGV7B×f–WvW"×æVÂ#âÂÒÒw&÷WF†—26V7F–öâöbF†RvRf÷"&öGV7Bf–WvW"æVÂâÒÓà¢Æ'WGFöâG—SÒ&'WGFöâ"–CÒ'&öGV7B×f–WvW"Ö6Æ÷6R"6Æ73Ò'&öGV7B×f–WvW"Ö6Æ÷6R"&–ÖÆ&VÃÒ$6Æ÷6R&öGV7B†÷F÷2#ì9sÂö'WGFöãâÂÒÒ&÷f–FR6Æ–6¶&ÆR÷"¶W–&ö&BÖ66W76–&ÆR'WGFöâf÷"&öGV7Bf–WvW"6Æ÷6RâÒÓà¢Ç6Æ73Ò'&öGV7B×f–WvW"ÖW–V'&÷r#æÆ—GFÆR6Æ÷6W#Â÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öâf÷"&öGV7Bf–WvW"W–V'&÷râÒÓà¢Æƒ"–CÒ'&öGV7B×f–WvW"×F—FÆR#ãÂöƒ#âÂÒÒF—7Æ’F†—26V7F–öâ†VF–ærf÷"&öGV7Bf–WvW"F—FÆRâÒÓà¢ÆF—b6Æ73Ò'&öGV7B×f–WvW"Ög&ÖR#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"&öGV7Bf–WvW"g&ÖRâÒÓà¢ÆF—b–CÒ'&öGV7B×f–WvW"×7FvR"6Æ73Ò'&öGV7B×f–WvW"×7FvR#ãÂöF—câÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"&öGV7Bf–WvW"7FvRâÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢Ç–CÒ'&öGV7B×f–WvW"Ö6÷VçB"6Æ73Ò'&öGV7B×f–WvW"Ö6÷VçB#ãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öâf÷"&öGV7Bf–WvW"6÷VçBâÒÓà¢ÆF—b6Æ73Ò'&öGV7B×f–WvW"Ö6öçG&öÇ2"&öÆSÒ&w&÷W"&–ÖÆ&VÃÒ%†÷Fò6öçG&öÇ2#âÂÒÒw&÷WF†W6RVÆVÖVçG2f÷"Æ–÷WB÷"&V†f–÷"f÷"&öGV7Bf–WvW"6öçG&öÇ2âÒÓà¢Æ'WGFöâG—SÒ&'WGFöâ"–CÒ'&öGV7B×f–WvW"×&Wf–÷W2"&–ÖÆ&VÃÒ%&Wf–÷W2†÷Fò#î(iÂö'WGFöãâÂÒÒ&÷f–FR6Æ–6¶&ÆR÷"¶W–&ö&BÖ66W76–&ÆR'WGFöâf÷"&öGV7Bf–WvW"&Wf–÷W2âÒÓà¢Æ'WGFöâG—SÒ&'WGFöâ"–CÒ'&öGV7B×f–WvW"×W6R"&–×&W76VCÒ&fÇ6R#åW6Rf–Ww3Âö'WGFöãâÂÒÒ&÷f–FR6Æ–6¶&ÆR÷"¶W–&ö&BÖ66W76–&ÆR'WGFöâf÷"&öGV7Bf–WvW"W6RâÒÓà¢Æ'WGFöâG—SÒ&'WGFöâ"–CÒ'&öGV7B×f–WvW"ÖæW‡B"&–ÖÆ&VÃÒ$æW‡B†÷Fò#î(i#Âö'WGFöãâÂÒÒ&÷f–FR6Æ–6¶&ÆR÷"¶W–&ö&BÖ66W76–&ÆR'WGFöâf÷"&öGV7Bf–WvW"æW‡BâÒÓà¢ÂöF—câÂÒÒ6Æ÷6RF†RF—b6öçF–æW"âÒÓà¢Ç–CÒ'&öGV7B×f–WvW"×7FGW2"6Æ73Ò'&öGV7B×f–WvW"×7FGW2"&öÆSÒ'7FGW2#ãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öâf÷"&öGV7Bf–WvW"7FGW2âÒÓà¢Ç6Æ73Ò'&öGV7B×f–WvW"Ö†VÇ#åF÷WG6–FR÷"6Æ÷6RFò&WGW&âFòF†RÖVçRãÂ÷âÂÒÒF—7Æ’F†—2ÖW76vR÷"FW67&—F–öâf÷"&öGV7Bf–WvW"†VÇâÒÓà¢Â÷6V7F–öãâÂÒÒ6Æ÷6RF†R6V7F–öâ6öçF–æW"âÒÓà¢ÂöF–ÆösâÂÒÒ6Æ÷6RF†RF–Æör6öçF–æW"âÒÓà ¢ÂÒÒ–ææVBFòF†RÆVæ—2fW'6–öâ7V6–f–VB–âFW6–vâæÖC²ÆöB&Vf÷&R6—FR6öFRâÒÓà¢Ç67&—B7&3Ò&‡GG3¢òö6Fâæ§6FVÆ—g"ææWBöçÒô7GVF–òÖg&V–v‡BöÆVæ—4ããC"öF—7BöÆVæ—2æÖ–âæ§2#ãÂ÷67&—CâÂÒÒÆöBF†—2¦f67&—Bf–ÆRgFW"F†RvRÖ&·WâÒÓà¢Ç67&—B7&3Ò'67&—Bæ§3÷cÖ7W7FöÖW"×&Wf–Ww2Ö’Ó"#ãÂ÷67&—CâÂÒÒÆöBF†—2¦f67&—Bf–ÆRgFW"F†RvRÖ&·WâÒÓà¢ÆF—b–CÒ&6'B×Fö7B"6Æ73Ò&6'B×Fö7B"&öÆSÒ'7FGW2"&–ÖÆ—fSÒ'öÆ—FR"&–ÖFöÖ–3Ò'G'VR#ãÂöF—câÂÒÒææ÷Væ6R6'B6öæf—&ÖF–öç2Fò6–v‡FVBæB67&VVâ×&VFW"W6W'2Æ–¶RâÒÓà£Âö&öG“âÂÒÒ6Æ÷6RF†R&öG’6öçF–æW"âÒÓà£Âö‡FÖÃâÂÒÒ6Æ÷6RF†R‡FÖÂ6öçF–æW"âÒÓà
