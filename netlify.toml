@@ -1,34 +1,39 @@
 # Netlify Configuration for butttercloud
 
-[build]
-  publish = "."
+[build] # Start the site build settings.
+  command = "npm run build" # Prepare the static site and install the review function dependency during Netlify builds.
+  publish = "dist" # Publish only browser assets, keeping server code and dependencies out of the public folder.
 
 # Optimize cache headers for faster mobile load times
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    X-XSS-Protection = "1; mode=block"
-    Referrer-Policy = "no-referrer-when-downgrade"
+[[headers]] # Start a response-header rule.
+  for = "/*" # Choose the file paths affected by this rule.
+  [headers.values] # Set the headers for the matching files.
+    X-Frame-Options = "DENY" # Prevent the site from being embedded in another page.
+    X-Content-Type-Options = "nosniff" # Require the declared file type to be respected.
+    X-XSS-Protection = "1; mode=block" # Keep the existing legacy browser protection header.
+    Referrer-Policy = "no-referrer-when-downgrade" # Keep the existing referrer information policy.
 
-# Cache static assets like images, fonts, and scripts heavily for returning visitors
-[[headers]]
-  for = "/gallery/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+# Keep image caching; always revalidate unversioned application assets.
+[[headers]] # Start a response-header rule.
+  for = "/gallery/*" # Choose the file paths affected by this rule.
+  [headers.values] # Set the headers for the matching files.
+    Cache-Control = "public, max-age=31536000, immutable" # Control how browsers cache these files.
 
-[[headers]]
-  for = "/mascot/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+[[headers]] # Start a response-header rule.
+  for = "/mascot/*" # Choose the file paths affected by this rule.
+  [headers.values] # Set the headers for the matching files.
+    Cache-Control = "public, max-age=31536000, immutable" # Control how browsers cache these files.
 
-[[headers]]
-  for = "/*.css"
-  [headers.values]
-    Cache-Control = "public, max-age=86400, must-revalidate"
+[[headers]] # Start a response-header rule.
+  for = "/*.css" # Choose the file paths affected by this rule.
+  [headers.values] # Set the headers for the matching files.
+    Cache-Control = "public, max-age=0, must-revalidate" # Control how browsers cache these files.
 
-[[headers]]
-  for = "/*.js"
-  [headers.values]
-    Cache-Control = "public, max-age=86400, must-revalidate"
+[[headers]] # Start a response-header rule.
+  for = "/*.js" # Choose the file paths affected by this rule.
+  [headers.values] # Set the headers for the matching files.
+    Cache-Control = "public, max-age=0, must-revalidate" # Control how browsers cache these files.
+
+[functions] # Bundle the shared-review API alongside the static website.
+  directory = "netlify/functions" # Locate the new server function.
+  node_bundler = "esbuild" # Bundle its Netlify Blobs dependency.
